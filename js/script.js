@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
   console.log("JavaScript carregado");
 
   // 🌄 Ajustar imagem da hero conforme ambiente
@@ -52,5 +53,15 @@ window.addEventListener("scroll", function () {
     footerBar.style.bottom = "0";
   } else {
     footerBar.style.bottom = "-100px";
+  }
+});
+
+// Scroll cabecalho
+window.addEventListener("scroll", () => {
+  const header = document.querySelector("header");
+  if (window.scrollY > 10) {
+    header.style.boxShadow = "0 2px 6px rgba(0,0,0,0.1)";
+  } else {
+    header.style.boxShadow = "none";
   }
 });

@@ -7,28 +7,38 @@ body {
   }
   
   header {
-    background-color: #fff;
-    color: #222;
-    padding: 1em 2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;
   }
   
-  .logo {
-    font-size: 1.8em;
-    font-weight: bold;
+  
+  header img {
+    max-height: 50px;
+    margin-right: auto;
+  }
+  
+  
+  nav {
+    display: flex;
+    justify-content: space-between; /* Logo à esquerda, menu à direita */
+    align-items: center;
+    padding: 0.8em 2em;
   }
   
   .menu {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
     gap: 1.5em;
     margin: 0;
     padding: 0;
   }
+  
   
   .menu li {
     margin: 0;
@@ -69,8 +79,9 @@ body {
   .hero {
     color: white;
     text-align: center;
-    padding: 6em 2em;
+    padding: 8em 2em 6em;
   }
+  
   
   .hero h1 {
     font-size: 2.5em;
@@ -193,14 +204,14 @@ body {
   /* Scroll reveal animation base */
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
   }
-  
   .scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
+  
 
   .formulario {
     display: flex;
@@ -356,8 +367,47 @@ body {
     color: #fff;
   }
   
+  body {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
   
+  body.loaded {
+    opacity: 1;
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  body::after {
+    content: "";
+    display: block;
+    height: 80px; /* mesma altura do footer-bar */
+  }
+  
+  .perfil:hover,
+  .area-atuacao:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
 
+  .subtitulo {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  .subtitulo h2 {
+    margin-bottom: 0.3em;
+    font-size: 2em;
+    color: #005fa3;
+  }
+  
+  .conteudo-pagina {
+    padding-top: 6em; /* ou mais, se o header for alto */
+  }
+  
 
   
   
