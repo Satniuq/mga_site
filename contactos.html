@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Contactos – MGA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <header>
+    <div class="logo"><a href="index.html"><img src="img/logo.jpg" alt="Logótipo MGA" class="logo-img"></a></div>
+    <nav>
+      <ul class="menu" id="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="equipa.html">Equipa</a></li>
+        <li><a href="areas.html">Áreas</a></li>
+        <li><a href="contactos.html" class="ativo">Contactos</a></li>
+      </ul>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
+
+  <main class="pagina-sobre">
+    <h1>Contacte-nos</h1>
+
+    <section class="secao scroll-reveal">
+      <h2><i class="fas fa-map-marker-alt"></i> Morada</h2>
+      <p>Avenida Miguel Bombarda, 147 – 1.º Dto.<br>1050-164 Lisboa</p>
+      <p><i class="fas fa-phone-alt"></i> +351 213580247</p>
+      <p><i class="fas fa-envelope"></i> advogados@mga.com.pt</p>
+    </section>
+
+    <section class="secao scroll-reveal">
+      <h2><i class="fas fa-paper-plane"></i> Envie-nos uma mensagem</h2>
+      <form action="https://formspree.io/f/mzzrpvnq" method="POST" class="formulario">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" required>
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+        <div class="mapa-container scroll-reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3117.5936532043575!2d-9.15137131693253!3d38.736265249376856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19330c79a7ff5d%3A0xd6963ad9006c9167!2sAv.%20Miguel%20Bombarda%20147%2C%201050-167%20Lisboa!5e0!3m2!1spt-PT!2spt!4v1745255135489!5m2!1spt-PT!2spt" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>      
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MGA – Sociedade de Advogados | 
+      <a href="politica-privacidade.html">Política de Privacidade</a>
+    </p>
+  </footer>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
