@@ -411,8 +411,40 @@ body {
   }
   
   .conteudo-pagina {
-    padding-top: 6em; /* ou mais, se o header for alto */
+    padding-top: 10em;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 2em;
+    padding-right: 2em;
+    text-align: justify;
   }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .nome-sociedade {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.8em;
+    line-height: 1.2;
+  }
+  
+  .linha-1 {
+    font-size: 0.9em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  .linha-2 {
+    font-size: 0.65em;
+    color: #444;
+  }
+  
+  
   
 
   
