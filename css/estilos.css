@@ -15,7 +15,13 @@ body {
     z-index: 1000;
     box-shadow: none;
     transition: box-shadow 0.3s ease;
+  
+    display: flex;              /* 💡 transforma em layout horizontal */
+    justify-content: space-between; /* logo à esquerda, nav à direita */
+    align-items: center;
+    padding: 0.8em 2em;
   }
+  
   
   
   header img {
