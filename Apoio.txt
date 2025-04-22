@@ -1,0 +1,9 @@
+MGA - SITE
+
+
+
+COMMIT NO GITHUB
+
+git add .
+git commit -m "new logo e ico"
+git push
