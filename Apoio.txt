@@ -15,4 +15,10 @@ Depois abrir no browser:
 
 
 
+DOMÍNIO
+
+O site www.mga.com.pt está no PTServidor
+
+Tenho de fazer a ligação github pages para o PTServidor
+
 
