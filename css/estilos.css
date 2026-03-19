@@ -16,23 +16,20 @@ body {
     box-shadow: none;
     transition: box-shadow 0.3s ease;
   
-    display: flex;              /* 💡 transforma em layout horizontal */
-    justify-content: space-between; /* logo à esquerda, nav à direita */
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 0.8em 2em;
   }
-  
-  
   
   header img {
     max-height: 50px;
     margin-right: auto;
   }
   
-  
   nav {
     display: flex;
-    justify-content: space-between; /* Logo à esquerda, menu à direita */
+    justify-content: space-between;
     align-items: center;
     padding: 0.8em 2em;
   }
@@ -44,7 +41,6 @@ body {
     margin: 0;
     padding: 0;
   }
-  
   
   .menu li {
     margin: 0;
@@ -73,7 +69,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-  }  
+  }
   
   .menu-toggle {
     display: none;
@@ -83,15 +79,52 @@ body {
   }
   
   .hero {
+    position: relative;
     color: white;
     text-align: center;
-    padding: 8em 2em 6em;
+    padding: 9.5em 2em 7em;
   }
   
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+  }
+  
+  .hero-conteudo {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .hero-etiqueta {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1em;
+    opacity: 0.9;
+  }
   
   .hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
+    font-size: 2.9em;
+    line-height: 1.2;
+    margin-bottom: 0.6em;
+  }
+  
+  .hero-texto {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1.1em;
+  }
+  
+  .hero-acoes {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+    margin-top: 2em;
   }
   
   .hero .btn {
@@ -101,6 +134,13 @@ body {
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
+    margin-top: 0;
+  }
+  
+  .btn-secundario {
+    background: transparent !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.85);
   }
   
   .areas-resumo {
@@ -134,6 +174,128 @@ body {
     font-size: 0.9em;
   }
   
+  .home-main {
+    background: #fff;
+  }
+  
+  .home-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4em 2em;
+  }
+  
+  .home-section-header {
+    max-width: 760px;
+    margin: 0 auto 2em;
+    text-align: center;
+  }
+  
+  .home-section-header h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #111;
+  }
+  
+  .home-section-header p {
+    font-size: 1.05em;
+    color: #555;
+    margin: 0;
+  }
+  
+  .home-intro {
+    max-width: 900px;
+    text-align: center;
+  }
+  
+  .home-intro p {
+    font-size: 1.1em;
+    margin: 0;
+  }
+  
+  .home-areas {
+    background-color: #f8f8f8;
+  }
+  
+  .home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25em;
+  }
+  
+  .home-grid-diferenciacao {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .home-card {
+    background-color: #fff;
+    border-left: 4px solid #005fa3;
+    border-radius: 6px;
+    padding: 1.3em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .home-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+  }
+  
+  .home-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.7em;
+    font-size: 1.15em;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 0.55em;
+  }
+  
+  .home-card p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.7;
+  }
+  
+  .home-card-compact h3 {
+    justify-content: center;
+  }
+  
+  .home-card-compact {
+    text-align: center;
+  }
+  
+  .home-section-cta {
+    text-align: center;
+    margin-top: 2em;
+  }
+  
+  .home-contacto-final {
+    padding-top: 2.5em;
+    padding-bottom: 5em;
+  }
+  
+  .home-contacto-box {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    background: #f4f4f4;
+    border-radius: 8px;
+    padding: 2.5em 2em;
+  }
+  
+  .home-contacto-box h2 {
+    margin-top: 0;
+    margin-bottom: 0.6em;
+    font-size: 2em;
+    color: #111;
+  }
+  
+  .home-contacto-box p {
+    margin: 0 auto;
+    max-width: 650px;
+    font-size: 1.08em;
+  }
+  
   /* Responsivo */
   @media (max-width: 768px) {
     .menu {
@@ -154,6 +316,37 @@ body {
   
     .menu-toggle {
       display: block;
+    }
+  
+    .hero {
+      padding: 8.5em 1.5em 5.5em;
+    }
+  
+    .hero h1 {
+      font-size: 2.2em;
+    }
+  
+    .home-section {
+      padding: 3.2em 1.5em;
+    }
+  
+    .home-section-header h2,
+    .home-contacto-box h2 {
+      font-size: 1.7em;
+    }
+
+    .sobre-principios {
+      grid-template-columns: 1fr;
+    }
+
+    .sobre-intro,
+    .sobre-fecho,
+    .equipa-intro,
+    .equipa-fecho,
+    .pagina-intro,
+    .pagina-fecho {
+      padding-left: 1.4em;
+      padding-right: 1.4em;
     }
   }
   
@@ -206,6 +399,141 @@ body {
     transform: translateX(5px);
     background-color: #f7f7f7;
   }
+
+  .sobre-intro {
+    max-width: 820px;
+    margin: 0 auto 3em;
+    padding: 1.8em 2em;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .sobre-intro p {
+    margin: 0;
+    font-size: 1.08em;
+    line-height: 1.8;
+  }
+
+  .sobre-principios {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2em;
+    margin-top: 1.2em;
+  }
+
+  .sobre-principio {
+    background-color: #f9f9f9;
+    border-left: 4px solid #005fa3;
+    border-radius: 6px;
+    padding: 1.2em 1.25em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .sobre-principio h3 {
+    margin: 0 0 0.5em;
+    font-size: 1.08em;
+    color: #222;
+  }
+
+  .sobre-principio p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.7;
+  }
+
+  .sobre-fecho {
+    max-width: 760px;
+    margin: 0 auto 2em;
+    padding: 2em;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+  }
+
+  .sobre-fecho p {
+    margin: 0;
+    font-size: 1.05em;
+    line-height: 1.8;
+  }
+
+  .equipa-intro {
+    max-width: 820px;
+    margin: 0 auto 3em;
+    padding: 1.8em 2em;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .equipa-intro p {
+    margin: 0;
+    font-size: 1.08em;
+    line-height: 1.8;
+  }
+
+  .equipa-bloco-topo {
+    margin-bottom: 1.5em;
+  }
+
+  .equipa-bloco-topo p {
+    margin: 0.3em 0 0;
+    color: #555;
+  }
+
+  .equipa-fecho {
+    max-width: 760px;
+    margin: 0 auto 2em;
+    padding: 2em;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+  }
+
+  .equipa-fecho p {
+    margin: 0;
+    font-size: 1.05em;
+    line-height: 1.8;
+  }
+
+  .pagina-intro {
+    max-width: 820px;
+    margin: 0 auto 3em;
+    padding: 1.8em 2em;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .pagina-intro p {
+    margin: 0;
+    font-size: 1.08em;
+    line-height: 1.8;
+  }
+
+  .pagina-fecho {
+    max-width: 760px;
+    margin: 0 auto 2em;
+    padding: 2em;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+  }
+
+  .pagina-fecho p {
+    margin: 0;
+    font-size: 1.05em;
+    line-height: 1.8;
+  }
+
+  .secao-topo {
+    margin-bottom: 1.5em;
+  }
+
+  .secao-topo p {
+    margin: 0.3em 0 0;
+    color: #555;
+  }
   
   /* Scroll reveal animation base */
   .scroll-reveal {
@@ -213,12 +541,12 @@ body {
     transform: translateY(40px);
     transition: all 0.6s ease;
   }
+  
   .scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
   
-
   .formulario {
     display: flex;
     flex-direction: column;
@@ -254,7 +582,7 @@ body {
   }
 
   .mapa-container {
-    margin-top: 3em;
+    margin-top: 1.5em;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -266,7 +594,6 @@ body {
     border: none;
   }
   
-
   .perfil {
     display: flex;
     align-items: center;
@@ -319,7 +646,6 @@ body {
     }
   }
   
-
   .footer-bar {
     position: fixed;
     bottom: -100px;
@@ -390,7 +716,7 @@ body {
   body::after {
     content: "";
     display: block;
-    height: 80px; /* mesma altura do footer-bar */
+    height: 80px;
   }
   
   .perfil:hover,
@@ -404,6 +730,7 @@ body {
     text-align: center;
     margin-bottom: 2em;
   }
+  
   .subtitulo h2 {
     margin-bottom: 0.3em;
     font-size: 2em;
@@ -443,11 +770,3 @@ body {
     font-size: 0.65em;
     color: #444;
   }
-  
-  
-  
-
-  
-  
-  
-  

@@ -1,9 +1,18 @@
 MGA - SITE
 
+###########################
+
+TESTAR:
+
+    python -m http.server 8000
 
 
-COMMIT NO GITHUB
+Depois abrir no browser:
 
-git add .
-git commit -m "new logo e ico"
-git push
+    http://localhost:8000/index.html
+
+##########################
+
+
+
+

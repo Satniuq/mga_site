@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
-  console.log("JavaScript carregado");
 
   // 🌄 Ajustar imagem da hero conforme ambiente
   const hero = document.querySelector('.hero');
@@ -22,14 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 👀 Scroll reveal
   const elements = document.querySelectorAll(".scroll-reveal");
 
-  if (elements.length === 0) {
-    console.warn("⚠️ Nenhum elemento com .scroll-reveal encontrado.");
-  }
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        console.log("🔍 Visível:", entry.target);
         entry.target.classList.add("visible");
         observer.unobserve(entry.target);
       }
