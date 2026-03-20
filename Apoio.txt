@@ -22,3 +22,4 @@ O site www.mga.com.pt está no PTServidor
 Tenho de fazer a ligação github pages para o PTServidor
 
 
+faz um read me com o estado do processo em que se fechou o novo tom do texto da homepage e das areas e das areas que falta criar (alem das que disse acima tmb outra tipo notariado), e de como

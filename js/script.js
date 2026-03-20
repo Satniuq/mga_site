@@ -2,10 +2,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 
   // 🌄 Ajustar imagem da hero conforme ambiente
-  const hero = document.querySelector('.hero');
+  const hero = document.querySelector(".hero");
   if (hero) {
     const isGithub = location.hostname.includes("github.io");
-    const path = isGithub ? "/mga_site/img/bg-hero.jpg" : "img/bg-hero.jpg";
+    const inEnglishFolder = location.pathname.includes("/en/");
+    const path = isGithub
+      ? "/mga_site/img/bg-hero.jpg"
+      : inEnglishFolder
+        ? "../img/bg-hero.jpg"
+        : "img/bg-hero.jpg";
+
     hero.style.background = `url('${path}') center/cover no-repeat`;
   }
 

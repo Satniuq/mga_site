@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -75,7 +79,8 @@ body {
     display: none;
     cursor: pointer;
     font-size: 1.5em;
-    color: white;
+    color: #222;
+    line-height: 1;
   }
   
   .hero {
@@ -109,7 +114,7 @@ body {
 
   .hero-etiqueta-sub {
   margin: -0.35rem 0 1rem;
-  font-size: 0.95rem;
+  font-size: 0.70rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   opacity: 0.85;
@@ -306,57 +311,76 @@ body {
   
   /* Responsivo */
   @media (max-width: 768px) {
-    .menu {
-      display: none;
-      flex-direction: column;
-      background-color: #fff;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      padding: 1em;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-  
-    .menu.show {
-      display: flex;
-    }
-  
-    .menu-toggle {
-      display: block;
-    }
-  
-    .hero {
-      padding: 8.5em 1.5em 5.5em;
-    }
-  
-    .hero h1 {
-      font-size: 2.2em;
-    }
-  
-    .home-section {
-      padding: 3.2em 1.5em;
-    }
-  
-    .home-section-header h2,
-    .home-contacto-box h2 {
-      font-size: 1.7em;
-    }
-
-    .sobre-principios {
-      grid-template-columns: 1fr;
-    }
-
-    .sobre-intro,
-    .sobre-fecho,
-    .equipa-intro,
-    .equipa-fecho,
-    .pagina-intro,
-    .pagina-fecho {
-      padding-left: 1.4em;
-      padding-right: 1.4em;
-    }
+  header {
+    padding: 0.8em 1em;
+    box-sizing: border-box;
   }
+
+  nav {
+    padding: 0;
+    position: relative;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    max-width: calc(100vw - 20px);
+    margin: 0;
+    padding: 0.8em 1em;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    z-index: 1001;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu li a {
+    display: block;
+    padding: 0.75em 0;
+  }
+
+  .hero {
+    padding: 8.5em 1.5em 5.5em;
+  }
+
+  .hero h1 {
+    font-size: 2.2em;
+  }
+
+  .home-section {
+    padding: 3.2em 1.5em;
+  }
+
+  .home-section-header h2,
+  .home-contacto-box h2 {
+    font-size: 1.7em;
+  }
+
+  .sobre-principios {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-intro,
+  .sobre-fecho,
+  .equipa-intro,
+  .equipa-fecho,
+  .pagina-intro,
+  .pagina-fecho {
+    padding-left: 1.4em;
+    padding-right: 1.4em;
+  }
+}
   
   .pagina-sobre {
     max-width: 960px;
@@ -777,4 +801,25 @@ body {
   .linha-2 {
     font-size: 0.65em;
     color: #444;
+  }
+
+  .idioma-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.45em;
+    margin-left: 0.5em;
+  }
+
+  .idioma-switch span {
+    color: #777;
+  }
+
+  .idioma-switch a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+  }
+
+  .idioma-switch a.ativo {
+    font-weight: 700;
   }
