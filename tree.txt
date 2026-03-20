@@ -1,0 +1,35 @@
+C:\Users\JoseVitorinoQuintas\MGA_site>tree /f
+Folder PATH listing for volume Windows
+Volume serial number is A2A5-A63E
+C:.
+│   Apoio.txt
+│   areas.html
+│   contactos.html
+│   equipa.html
+│   favicon.ico
+│   favicon1.ico
+│   index.html
+│   informacao-legal.html
+│   politica-privacidade.html
+│   README_estado_processo.md
+│   sobre.html
+│
+├───css
+│       estilos.css
+│
+├───en
+│       index.html
+│
+├───img
+│   │   bg-hero.jpg
+│   │   logo.jpg
+│   │   logo1.jpg
+│   │
+│   └───Equipa 
+│           jsmiguel.jpg
+│
+└───js
+        script.js
+
+
+C:\Users\JoseVitorinoQuintas\MGA_site> 
