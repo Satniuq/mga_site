@@ -98,6 +98,3 @@ FORMATO DE SAÍDA
 31. Não omitas partes repetidas do HTML.
 32. Não indentes o documento inteiro com espaços adicionais à esquerda.
 33. Usa exatamente este formato:
-
-FILE: [DESTINO_EN]
-[conteúdo HTML integral final]

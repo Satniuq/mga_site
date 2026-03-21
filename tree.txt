@@ -1,6 +1,6 @@
-C:\Users\JoseVitorinoQuintas\MGA_site>tree /f
+C:\Users\vanes\MGA_site\mga_site>tree /f
 Folder PATH listing for volume Windows
-Volume serial number is A2A5-A63E
+Volume serial number is CCEC-2F66
 C:.
 │   Apoio.txt
 │   areas.html
@@ -11,25 +11,33 @@ C:.
 │   index.html
 │   informacao-legal.html
 │   politica-privacidade.html
+│   Prompt tradução.txt
 │   README_estado_processo.md
 │   sobre.html
+│   tree.txt
 │
 ├───css
 │       estilos.css
 │
 ├───en
+│       about.html
+│       contacts.html
 │       index.html
+│       legal-information.html
+│       practice-areas.html
+│       privacy-policy.html
+│       team.html
 │
 ├───img
 │   │   bg-hero.jpg
 │   │   logo.jpg
 │   │   logo1.jpg
 │   │
-│   └───Equipa 
+│   └───Equipa
 │           jsmiguel.jpg
 │
 └───js
         script.js
 
 
-C:\Users\JoseVitorinoQuintas\MGA_site> 
+C:\Users\vanes\MGA_site\mga_site>
