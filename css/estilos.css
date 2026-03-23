@@ -823,3 +823,28 @@ body {
   .idioma-switch a.ativo {
     font-weight: 700;
   }
+
+.secao-link,
+.home-card-link {
+  display: block;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.secao-link:hover,
+.secao-link:focus,
+.secao-link:active,
+.secao-link:visited,
+.home-card-link:hover,
+.home-card-link:focus,
+.home-card-link:active,
+.home-card-link:visited {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.secao-link *,
+.home-card-link * {
+  color: inherit !important;
+  text-decoration: none !important;
+}
