@@ -1,20 +1,36 @@
-C:\Users\vanes\MGA_site\mga_site>tree /f
+C:\Users\JoseVitorinoQuintas\MGA_site>tree /f
 Folder PATH listing for volume Windows
-Volume serial number is CCEC-2F66
+Volume serial number is A2A5-A63E
 C:.
 │   Apoio.txt
 │   areas.html
+│   comercial-societario.html
 │   contactos.html
+│   contencioso-arbitragem.html
+│   contratacao-publica.html
+│   direito-administrativo.html
+│   direito-civil.html
+│   direito-penal.html
+│   direito-trabalho.html
 │   equipa.html
+│   familia.html
 │   favicon.ico
 │   favicon1.ico
+│   imobiliario-investimento.html
 │   index.html
 │   informacao-legal.html
 │   politica-privacidade.html
 │   Prompt tradução.txt
-│   README_estado_processo.md
+│   README_estado_processo_MGA.md
+│   reagrupamento-familiar-portugal.html
+│   residencia-em-portugal.html
 │   sobre.html
+│   solicitadoria-atos-notariais.html
+│   sucessoes-herancas.html
 │   tree.txt
+│   visto-d2-portugal.html
+│   visto-d7-portugal.html
+│   visto-gold-portugal.html
 │
 ├───css
 │       estilos.css
@@ -26,6 +42,7 @@ C:.
 │       legal-information.html
 │       practice-areas.html
 │       privacy-policy.html
+│       residence-in-portugal.html
 │       team.html
 │
 ├───img
@@ -40,4 +57,4 @@ C:.
         script.js
 
 
-C:\Users\vanes\MGA_site\mga_site>
+C:\Users\JoseVitorinoQuintas\MGA_site>

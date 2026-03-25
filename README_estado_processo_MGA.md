@@ -60,9 +60,9 @@ A areas.html já está assumida como hub principal de áreas de prática, com te
 Já foi definida a primeira página-filha:
 
 PT
-residencia-mobilidade-internacional.html
+residencia-em-portugal.html
 EN
-en/residence-international-mobility.html
+en/residence-in-portugal.html
 
 Esta página já foi redigida e pensada para:
 
@@ -105,7 +105,7 @@ areas.html → páginas-filhas;
 páginas-filhas → página geral de áreas + contactos + áreas relacionadas.
 5. Páginas-filhas já definidas como necessárias
 Primeira vaga
-residencia-mobilidade-internacional.html
+residencia-em-portugal.html
 imobiliario-investimento.html
 comercial-societario.html
 Segunda vaga
@@ -119,7 +119,7 @@ notariado-atos-formais.html ou variante nominal próxima
 
 Na versão EN, ficaram igualmente previstos os equivalentes:
 
-en/residence-international-mobility.html
+en/residence-in-portugal.html
 en/real-estate-investment.html
 en/corporate-commercial.html
 en/family-succession-estate-planning.html ou separação equivalente
