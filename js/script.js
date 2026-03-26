@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "../img/bg-hero.jpg"
         : "img/bg-hero.jpg";
 
-    hero.style.background = `url('${path}') center/cover no-repeat`;
+    hero.style.backgroundImage = `url('${path}')`;
+    hero.style.backgroundRepeat = "no-repeat";
+    hero.style.backgroundSize = "cover";
   }
 
   // 🍔 Toggle menu mobile

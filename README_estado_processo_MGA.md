@@ -1,569 +1,362 @@
-# README — Revisão editorial e SEO das páginas de áreas
+# README — Estado atual do projeto MGA e preparação da fase EN
 
-## Objetivo do trabalho
+## Objetivo deste documento
 
-Está a ser feita uma revisão das páginas do site institucional da sociedade de advogados, com foco nas **páginas das áreas de atuação**.
+Este README passa a refletir o estado atual do projeto após a revisão editorial e estrutural das páginas em português do site institucional da MGA.
 
-O objetivo **não** é tornar o site mais “publicitário” nem mais “decorativo”. O objetivo é:
+O projeto entrou numa nova fase:
 
-* reduzir redundância;
-* diminuir o peso visual do texto;
-* tornar cada página mais concreta;
-* melhorar escaneabilidade;
-* reforçar SEO on-page com linguagem mais próxima do que o utilizador realmente procura;
-* manter um tom **sóbrio, institucional, técnico e contido**;
-* evitar que o site fique visualmente pesado ou “ornamental”.
+- o núcleo PT do site está, em termos práticos, estabilizado;
+- a linha editorial e visual está definida;
+- o próximo passo é a criação e alinhamento das páginas em inglês (**EN**) em conformidade com o novo padrão.
 
-A expressão usada pelo utilizador para o risco a evitar foi: **“não convém isto começar a parecer um tapete de Arraiolos”**.
+Este documento deve servir como referência de continuidade para qualquer nova intervenção no projeto.
 
 ---
 
-## Linha editorial definida
+## 1. Estado atual do projeto
 
-A linha seguida até agora foi esta:
+### 1.1. O que está fechado em PT
 
-### 1. Menos abstração institucional
+As páginas em português já foram revistas ou afinadas de forma consistente com a nova linha editorial.
 
-Foram cortadas fórmulas demasiado genéricas, repetitivas ou meta-explicativas, por exemplo construções do género:
+#### Páginas institucionais PT
+- `index.html`
+- `areas.html`
+- `sobre.html`
+- `equipa.html`
+- `contactos.html`
+- `informacao-legal.html`
+- `politica-privacidade.html`
 
-* “leitura integrada”
-* “abordagem transversal”
-* “enquadramento prudente”
-* “articulação com diferentes áreas” quando isso não acrescenta nada de concreto
-* parágrafos que explicam a própria página em vez de explicarem o problema jurídico
+#### Páginas de áreas PT
+- `comercial-societario.html`
+- `direito-civil.html`
+- `familia.html`
+- `sucessoes-herancas.html`
+- `direito-administrativo.html`
+- `contencioso-arbitragem.html`
+- `direito-trabalho.html`
+- `contratacao-publica.html`
+- `direito-penal.html`
+- `imobiliario-investimento.html`
+- `solicitadoria-atos-notariais.html`
 
-### 2. Mais ligação a problemas concretos
+#### Páginas PT de residência e mobilidade
+- `residencia-em-portugal.html`
+- `visto-d2-portugal.html`
+- `visto-d7-portugal.html`
+- `visto-gold-portugal.html`
+- `reagrupamento-familiar-portugal.html`
 
-Cada página passou a ser escrita mais em torno de temas que um cliente reconhece logo, por exemplo:
+### 1.2. O que existe atualmente em EN
 
-* cessão de quotas
-* despedimento
-* partilhas
-* responsabilidades parentais
-* concursos públicos
-* licenças
-* interrogatório
-* cobrança de créditos
-* compra e venda de imóveis
+No diretório `en`, existem já as seguintes páginas:
 
-### 3. Menos texto visualmente pesado
+- `index.html`
+- `about.html`
+- `team.html`
+- `contacts.html`
+- `legal-information.html`
+- `privacy-policy.html`
+- `practice-areas.html`
+- `residence-in-portugal.html`
 
-Mesmo quando o conteúdo estava juridicamente bom, muitas páginas tinham:
+Estas páginas não estão todas no mesmo grau de maturidade editorial.
 
-* parágrafos longos;
-* demasiadas secções com o mesmo peso;
-* caixas cinzentas visualmente pesadas;
-* blocos seguidos que criavam “parede de texto”.
+Algumas já têm uma base aproveitável, mas várias ainda refletem uma linha anterior:
+- mais abstrata;
+- menos concreta;
+- menos próxima da nova estrutura PT;
+- por vezes com hierarquia de títulos e metadados menos consistentes.
 
-A solução passou por:
+### 1.3. O que falta criar em EN
 
-* encurtar introduções;
-* usar menos secções;
-* introduzir um bloco “**O que acompanhamos**” com grelha de tópicos curtos;
-* deixar os restantes blocos mais claros e mais curtos.
+Faltam criar, pelo menos, as seguintes páginas EN, que já estão ligadas a partir dos ficheiros PT e/ou da navegação EN:
 
-### 4. SEO discreto, não agressivo
-
-Não se procurou “copy de marketing”. Procurou-se apenas:
-
-* títulos mais claros;
-* meta descriptions úteis;
-* termos que correspondem a pesquisas reais;
-* melhor correspondência entre H1, conteúdo e intenção de pesquisa.
-
-### 5. Tom a manter
-
-O tom definido é:
-
-* institucional;
-* claro;
-* tecnicamente seguro;
-* não dramático;
-* não emocional;
-* não académico em excesso;
-* não comercial agressivo.
-
----
-
-## Ajustes de CSS já assumidos
-
-Além do conteúdo HTML, foi definido que o CSS base também devia ser aligeirado, porque estava a contribuir para o peso visual do site.
-
-### Alterações de princípio no CSS
-
-Foram recomendadas estas mudanças:
-
-* trocar `text-align: justify` por `text-align: left` em `.conteudo-pagina`;
-* reduzir ligeiramente largura útil e densidade visual;
-* diminuir peso e tamanho visual das secções;
-* remover hover effects em texto corrido;
-* suavizar as caixas de `.pagina-intro` e `.pagina-fecho`;
-* acrescentar uma grelha reutilizável:
-
-  * `.pagina-area-simples`
-  * `.lista-topicos`
-  * `.topico-item`
-
-### Ideia visual
-
-A lógica visual definida foi:
-
-* manter o ADN do site;
-* evitar excesso de elementos decorativos;
-* usar estrutura e respiro em vez de “efeitos”;
-* não transformar páginas jurídicas em landing pages comerciais.
+- `en/corporate-commercial.html`
+- `en/real-estate-investment.html`
+- `en/civil-law.html`
+- `en/family-law.html`
+- `en/family-succession-estate-planning.html`
+- `en/administrative-law.html`
+- `en/public-procurement.html`
+- `en/criminal-law.html`
+- `en/litigation-arbitration.html`
+- `en/notarial-services-formal-acts.html`
+- `en/d2-visa-portugal.html`
+- `en/d7-visa-portugal.html`
+- `en/golden-visa-portugal.html`
+- `en/family-reunification-portugal.html`
 
 ---
 
-## Ficheiros já reformulados
+## 2. Linha editorial estabilizada
 
-### 1. `areas.html`
+A linha editorial definida para o site deve agora ser considerada estável.
 
-Foi refeita como **página-hub**.
+### 2.1. O que se quis evitar
+Foram evitados:
+- texto demasiado longo;
+- excesso de abstração institucional;
+- formulações meta-explicativas;
+- linguagem demasiado académica;
+- tom promocional ou agressivamente comercial;
+- excesso de secções e “parede de texto”;
+- SEO artificial.
 
-#### O que mudou
+### 2.2. O que se procurou
+Passou a procurar-se:
+- mais concretização;
+- mais escaneabilidade;
+- introduções mais curtas;
+- blocos mais claros;
+- problemas jurídicos reconhecíveis pelo utilizador;
+- melhor correspondência entre H1, meta description e conteúdo;
+- SEO discreto e natural;
+- tom sóbrio, técnico e institucional.
 
-* nova introdução;
-* melhor hierarquia;
-* agrupamento das áreas por lógica de utilização;
-* descrições mais concretas;
-* melhor função SEO e de navegação interna;
-* CTA final mais útil.
+### 2.3. Fórmula editorial de referência
+A estrutura-base usada nas páginas de áreas PT passou a ser, em regra:
 
-#### Lógica usada
-
-A página passou a funcionar como porta de entrada para:
-
-* residência / património / instalação em Portugal;
-* empresas / atividade económica;
-* pessoas / família / litígios.
-
----
-
-### 2. `comercial-societario.html`
-
-Foi revista para sair do registo demasiado genérico e institucional.
-
-#### Direção adotada
-
-Foco em:
-
-* constituição de sociedades;
-* cessão de quotas;
-* entrada e saída de sócios;
-* governação societária;
-* contratos comerciais;
-* reorganização societária.
-
-#### Estrutura adotada
-
-* introdução curta;
-* bloco “O que acompanhamos” em grelha;
-* blocos curtos sobre:
-
-  * sociedades, sócios e governação;
-  * contratos comerciais;
-  * articulação com outras áreas.
-
-#### Nota importante
-
-Houve uma primeira versão ainda pesada visualmente. Depois foi feita uma **segunda versão mais curta**, que é a que deve ser considerada como referência.
+1. **subtítulo / hero curto**
+2. **intro curta** com 2 parágrafos
+3. bloco **“O que acompanhamos”** com grelha de tópicos
+4. **3 blocos principais curtos**
+5. **articulação com outras áreas**
+6. **fecho curto com CTA**
 
 ---
 
-### 3. `direito-civil.html`
+## 3. Linha visual e CSS
 
-Foi reformulada para evitar que a página ficasse demasiado ampla e difusa.
+O CSS base já foi ajustado para suportar este novo modelo, nomeadamente com:
 
-#### Direção adotada
+- `text-align: left` na lógica principal de leitura;
+- menor peso visual das caixas;
+- melhoria de respiro;
+- manutenção do ADN do site sem excesso decorativo;
+- introdução de estruturas reutilizáveis para páginas simples de áreas.
 
-Foco em:
+### Classes relevantes já assumidas
+- `pagina-area-simples`
+- `lista-topicos`
+- `topico-item`
+- `areas-etiqueta`
+- `areas-subtitulo`
 
-* contratos;
-* propriedade;
-* arrendamento;
-* condomínio;
-* compra e venda;
-* doações;
-* responsabilidade civil.
-
-#### Estrutura adotada
-
-* intro curta;
-* bloco “O que acompanhamos” com tópicos;
-* três blocos principais:
-
-  * contratos e relações patrimoniais;
-  * propriedade, arrendamento e condomínio;
-  * compra e venda, doações e responsabilidade civil.
-
----
-
-### 4. `familia.html`
-
-Foi reformulada para ter um tom sóbrio, claro e não excessivamente emocional.
-
-#### Direção adotada
-
-Foco em:
-
-* divórcio;
-* separação;
-* responsabilidades parentais;
-* alimentos;
-* união de facto;
-* questões patrimoniais ligadas à dissolução da relação.
-
-#### Estrutura adotada
-
-* intro curta;
-* grelha de tópicos;
-* blocos sobre:
-
-  * divórcio e reorganização familiar;
-  * responsabilidades parentais e alimentos;
-  * união de facto e questões patrimoniais.
+### Princípio visual
+A lógica visual do site deve continuar a ser:
+- sóbria;
+- clara;
+- leve;
+- sem parecer “landing page”;
+- sem excesso de ornamento;
+- sem “tapete de Arraiolos”.
 
 ---
 
-### 5. `sucessoes-herancas.html`
+## 4. Regra central para a fase EN
 
-Foi reformulada para ficar mais concreta e menos vaga em torno de “planeamento patrimonial”.
+A fase EN **não deve consistir numa tradução literal do EN antigo**.
 
-#### Direção adotada
+Deve, sim, seguir esta ordem de prioridade:
 
-Foco em:
+### Prioridade 1
+Usar o **PT já revisto** como texto-fonte principal.
 
-* testamentos;
-* heranças;
-* partilhas;
-* habilitação de herdeiros;
-* aceitação e repúdio da herança;
-* planeamento sucessório.
+### Prioridade 2
+Adaptar o conteúdo ao inglês de forma:
+- natural;
+- institucional;
+- clara;
+- juridicamente segura;
+- sem calques desajeitados do português.
 
-#### Estrutura adotada
+### Prioridade 3
+Garantir coerência entre:
+- navegação;
+- `<title>`;
+- `meta description`;
+- H1;
+- subtítulo;
+- links internos;
+- naming dos ficheiros EN.
 
-* intro curta;
-* grelha de tópicos;
-* blocos sobre:
+### Regra prática
+Sempre que existir conflito entre:
+- o EN antigo,
+- e o PT novo,
 
-  * testamentos e planeamento sucessório;
-  * herdeiros, herança e partilhas;
-  * aceitação, repúdio e regularização patrimonial.
-
----
-
-### 6. `direito-administrativo.html`
-
-Foi reformulada para evitar tom demasiado académico ou doutrinário.
-
-#### Direção adotada
-
-Foco em:
-
-* procedimentos administrativos;
-* licenças;
-* autorizações;
-* notificações;
-* despachos;
-* indeferimentos;
-* contraordenações;
-* relações com entidades públicas.
-
-#### Estrutura adotada
-
-* intro curta;
-* grelha de tópicos;
-* blocos sobre:
-
-  * procedimentos e relações com entidades públicas;
-  * licenças, autorizações e atos administrativos;
-  * contraordenações e reação à atuação administrativa.
+deve prevalecer **o PT novo**, salvo se houver uma boa razão editorial para adaptar a formulação à leitura em inglês.
 
 ---
 
-### 7. `contencioso-arbitragem.html`
+## 5. Estado editorial das páginas EN já existentes
 
-Esta página teve uma evolução importante.
+### 5.1. Páginas EN institucionais
+Estas páginas existem e podem servir de base, mas devem ser revistas à luz do novo padrão PT:
 
-#### Primeira direção
+- `en/index.html`
+- `en/about.html`
+- `en/team.html`
+- `en/contacts.html`
+- `en/legal-information.html`
+- `en/privacy-policy.html`
+- `en/practice-areas.html`
 
-Inicialmente a página estava mais centrada em:
+### 5.2. Página EN de residência já existente
+- `en/residence-in-portugal.html`
 
-* litígios judiciais;
-* arbitragem;
-* cobrança;
-* conflitos patrimoniais e empresariais.
+Esta página existe, mas ainda está mais próxima do modelo antigo:
+- texto mais longo;
+- mais abstrato;
+- menos concreto;
+- sem a fórmula já estabilizada nas páginas PT recentes.
 
-#### Depois houve ajuste de alcance
-
-O utilizador alterou manualmente o bloco “O que acompanhamos”, introduzindo ideias úteis:
-
-* mediação / acordos / litígios
-* processos judiciais e arbitrais
-* responsabilidade e incumprimento
-* cobrança de créditos, penhoras e indemnizações
-* conflitos patrimoniais, familiares, de condomínio, laborais e empresariais
-* análise pré-contenciosa e estratégia processual
-
-A partir daí, a página foi reenquadrada para mostrar melhor que o contencioso é a **vertente litigiosa de várias matérias**, sem “engolir” as outras áreas.
-
-#### Ajustes conceptuais importantes
-
-* evitar tom meta-explicativo;
-* não escrever frases que expliquem a própria arquitetura do site;
-* apresentar a área como resposta jurídica ao conflito, qualquer que seja a sua origem.
-
-#### Estrutura final pretendida
-
-* intro curta;
-* grelha de tópicos;
-* blocos sobre:
-
-  * resolução de litígios e fase pré-contenciosa;
-  * processos judiciais, arbitragem e execução;
-  * conflitos patrimoniais, pessoais e empresariais.
-
-#### Nota importante
-
-Foi identificado um problema de tom numa frase demasiado explicativa:
-
-> “Por isso, esta área deve ser lida como a vertente litigiosa...”
-
-Essa formulação foi rejeitada. O critério é: **não explicar a página; explicar a realidade jurídica do problema**.
+Deve, por isso, ser reescrita com base em `residencia-em-portugal.html`, e não apenas “retocada”.
 
 ---
 
-### 8. `direito-trabalho.html`
+## 6. Ordem recomendada para a fase EN
 
-Foi reformulada para sair do tom demasiado “manualístico”.
+A sequência mais lógica é a seguinte:
 
-#### Direção adotada
+### Fase A — alinhar as páginas EN estruturantes
+1. `en/practice-areas.html`
+2. `en/residence-in-portugal.html`
 
-Foco em:
+### Fase B — criar as páginas EN do bloco residência
+3. `en/d2-visa-portugal.html`
+4. `en/d7-visa-portugal.html`
+5. `en/golden-visa-portugal.html`
+6. `en/family-reunification-portugal.html`
 
-* contratos de trabalho;
-* admissão;
-* deveres laborais;
-* vicissitudes do vínculo;
-* procedimentos disciplinares;
-* despedimento;
-* cessação do contrato;
-* conflitos laborais.
+### Fase C — criar as páginas EN das áreas principais
+7. `en/corporate-commercial.html`
+8. `en/real-estate-investment.html`
+9. `en/civil-law.html`
+10. `en/family-law.html`
+11. `en/family-succession-estate-planning.html`
+12. `en/administrative-law.html`
+13. `en/public-procurement.html`
+14. `en/criminal-law.html`
+15. `en/litigation-arbitration.html`
+16. `en/notarial-services-formal-acts.html`
 
-#### Estrutura adotada
-
-* intro curta;
-* grelha de tópicos;
-* blocos sobre:
-
-  * contratação e organização da relação laboral;
-  * execução do vínculo, deveres e vicissitudes;
-  * procedimentos disciplinares e cessação do contrato.
-
----
-
-### 9. `contratacao-publica.html`
-
-Foi reformulada para ficar menos abstrata e mais ligada à prática procedimental.
-
-#### Direção adotada
-
-Foco em:
-
-* concursos públicos;
-* peças do procedimento;
-* caderno de encargos;
-* participação de operadores económicos;
-* exclusões;
-* adjudicação;
-* execução de contratos públicos;
-* contencioso pré-contratual.
-
-#### Estrutura adotada
-
-* intro curta;
-* grelha de tópicos;
-* blocos sobre:
-
-  * procedimentos pré-contratuais e participação;
-  * adjudicação, exclusões e reação procedimental;
-  * execução de contratos públicos.
+### Fase D — afinação final de consistência EN
+17. rever `en/index.html`
+18. rever `en/about.html`
+19. rever `en/team.html`
+20. rever `en/contacts.html`
+21. rever `en/legal-information.html`
+22. rever `en/privacy-policy.html`
 
 ---
 
-### 10. `direito-penal.html`
-
-Foi reformulada com preocupação especial de tom.
-
-#### Direção adotada
-
-Evitar:
-
-* dramatização;
-* sensacionalismo;
-* tom demasiado emocional;
-* tecnicismo processual excessivo.
-
-#### Foco adotado
-
-* queixas;
-* denúncias;
-* constituição como arguido;
-* interrogatório;
-* medidas de coação;
-* inquérito;
-* instrução;
-* julgamento;
-* defesa penal;
-* assistência ao ofendido.
-
-#### Estrutura adotada
-
-* intro curta;
-* grelha de tópicos;
-* blocos sobre:
-
-  * fase inicial e definição de posição;
-  * inquérito, instrução e julgamento;
-  * defesa penal e assistência ao ofendido.
-
----
-
-## Ficheiros ainda por rever ou por fechar com o mesmo critério
-
-Os ficheiros que ainda devem ser revistos ou retomados com esta mesma lógica são, pelo menos:
-
-* `imobiliario-investimento.html`
-  já houve proposta, mas o utilizador não quis seguir para aí nesse momento; convém rever com o mesmo critério geral;
-
-* `solicitadoria-atos-notariais.html`
-
-Podem ainda justificar revisão de consistência geral:
-
-* `residencia-em-portugal.html`
-* `visto-d2-portugal.html`
-* `visto-d7-portugal.html`
-* `visto-gold-portugal.html`
-* `reagrupamento-familiar-portugal.html`
-
-Estas páginas estavam globalmente melhores de origem, mas podem beneficiar de afinação de coerência visual e editorial com as restantes.
-
----
-
-## Regras práticas para continuar
-
-Qualquer novo ambiente que pegue nisto deve respeitar estas regras:
+## 7. Regras práticas para escrever as páginas EN
 
 ### Regra 1
-
-Não voltar atrás para texto mais longo, mais abstracto ou mais “institucional por defeito”.
+Não traduzir literalmente estruturas portuguesas que soem artificiais em inglês.
 
 ### Regra 2
-
-Cada página deve responder a esta pergunta:
-**“Que tipo de problema jurídico concreto é que o visitante reconhece aqui?”**
+Evitar fórmulas vagas como:
+- “integrated reading”
+- “careful framing”
+- “cross-cutting approach”
+- “this page should be read as”
+- “this area aims to cover”
 
 ### Regra 3
-
-Em regra, cada página de área deve ter:
-
-* subtítulo / hero curto;
-* intro curta;
-* bloco “O que acompanhamos” com grelha;
-* 3 blocos principais curtos;
-* articulação com outras áreas;
-* fecho curto.
+Favorecer problemas concretos e reconhecíveis:
+- shareholders
+- dismissal
+- wills
+- residence permits
+- family reunification
+- public tenders
+- licensing
+- criminal proceedings
+- powers of attorney
+- certified copies
 
 ### Regra 4
-
-Evitar frases meta-explicativas, por exemplo:
-
-* “esta área deve ser lida como...”
-* “esta página pretende abranger...”
-* “a presente área reflete a articulação...”
+Manter tom:
+- institutional;
+- sober;
+- technically reliable;
+- discreet;
+- clear;
+- not overly academic;
+- not sales-driven.
 
 ### Regra 5
-
-Evitar excesso de secções.
-Mais secções não significa mais clareza.
+Em EN, simplificar sem banalizar.
+A página deve soar a:
+- law firm website,
+- not brochure,
+- not blog post,
+- not keyword stuffing.
 
 ### Regra 6
-
-Evitar listas demasiado técnicas ou demasiado processuais se isso empobrecer a leitura institucional.
-Exemplo: “penhoras” pode às vezes ser útil, mas pode ser melhor substituído por “execução”.
+As meta descriptions EN devem ser úteis e contidas, evitando:
+- exagero comercial;
+- excesso de keywords repetidas;
+- frases demasiado longas.
 
 ### Regra 7
-
-O SEO deve ser discreto:
-
-* usar termos reais;
-* não repetir keywords artificialmente;
-* não transformar páginas jurídicas em páginas de marketing.
-
-### Regra 8
-
-O tom deve continuar:
-
-* sóbrio;
-* fiável;
-* contido;
-* claro;
-* sem floreado;
-* sem “vender demais”.
+A estrutura EN deve espelhar a arquitetura PT já estabilizada, salvo ajuste fino por razões de naturalidade linguística.
 
 ---
 
-## Fórmula base recomendada para os próximos ficheiros
+## 8. Convenções técnicas e de consistência
 
-Uma boa fórmula de trabalho para os próximos ficheiros é:
+### 8.1. Navegação
+Os ficheiros EN devem manter:
+- caminhos relativos corretos (`../` quando aplicável);
+- alternância PT/EN coerente;
+- links internos funcionais.
 
-### Hero
+### 8.2. Head
+Cada nova página EN deve incluir:
+- `<title>` claro;
+- `meta description`;
+- favicon correto;
+- stylesheet correto;
+- Font Awesome;
+- estrutura idêntica à base PT/EN do projeto.
 
-* H1 claro
-* subtítulo curto e específico
+### 8.3. Imagens e caminhos
+A pasta de imagens da equipa deve ser uniformizada com atenção a maiúsculas/minúsculas, especialmente por causa de alojamento Linux.
 
-### Intro
-
-2 parágrafos curtos:
-
-* o que a área cobre;
-* quando é especialmente relevante
-
-### Bloco “O que acompanhamos”
-
-Grelha de 6 tópicos curtos, concretos e reconhecíveis
-
-### Blocos de desenvolvimento
-
-3 blocos curtos:
-
-* cada um com um subtítulo funcional;
-* cada um com 2 parágrafos curtos;
-* sem repetir a intro;
-* sem prosa autoexplicativa
-
-### Articulação com outras áreas
-
-1 parágrafo curto apenas
-
-### Fecho
-
-1 parágrafo curto + CTA
+### 8.4. Script
+O `script.js` já acomoda diferenças de caminho entre raiz, pasta `en` e GitHub Pages, pelo que os novos ficheiros EN devem respeitar essa lógica de paths.
 
 ---
 
-## Resumo final
+## 9. Princípio editorial final
 
-O trabalho já feito redefiniu uma **linha editorial estável** para o site:
+O princípio que passou a reger o projeto é este:
 
-* menos densidade visual;
-* menos redundância;
-* mais clareza temática;
-* mais aproximação a problemas reais;
-* SEO mais natural;
-* manutenção do tom institucional.
+**não decorar, não dramatizar, não vender em excesso — mas tornar o site mais claro, mais concreto, mais leve e mais útil.**
 
-O princípio central é este:
+No bloco EN, isso significa:
 
-**não simplificar em excesso, não decorar, não vender demasiado — mas tornar as páginas juridicamente sérias e editorialmente mais úteis.**
+- não aproveitar passivamente o inglês antigo;
+- reescrever com base no PT já consolidado;
+- manter consistência estrutural e visual;
+- garantir um inglês natural, sóbrio e juridicamente credível.
+
+---
+
+## 10. Resumo executivo
+
+### PT
+O lado PT está, em termos práticos, fechado.
+
+### EN
+O lado EN é agora a prioridade principal.
+
+### Método correto
+Não traduzir o EN antigo:  
+**usar o PT novo como base e construir o EN a partir daí.**
