@@ -412,15 +412,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(18, 22, 27, 0.44) 0%,
-      rgba(18, 22, 27, 0.38) 28%,
-      rgba(18, 22, 27, 0.27) 52%,
-      rgba(18, 22, 27, 0.18) 72%,
-      rgba(18, 22, 27, 0.14) 100%
-    );
+  background: rgba(0, 0, 0, 0.34);
 }
 
 .hero-home .hero-conteudo {
@@ -428,20 +420,29 @@ body {
   margin: 0 auto;
   text-align: center;
   transform: translate(3.5%, -1.2%);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  backdrop-filter: none;
 }
 
 .hero-home .hero-etiqueta {
   margin-bottom: 0.85rem;
   font-size: 0.82rem;
-  letter-spacing: 0.16em;
-  font-weight: 600;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 .hero-home .hero-etiqueta-sub {
   margin: 0 0 1.15rem;
-  font-size: 0.73rem;
-  letter-spacing: 0.13em;
-  opacity: 0.88;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  opacity: 1;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 .hero-home h1 {
@@ -450,6 +451,7 @@ body {
   line-height: 1.08;
   letter-spacing: -0.02em;
   text-wrap: balance;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 }
 
 .hero-home .hero-texto {
@@ -458,6 +460,7 @@ body {
   font-size: 1.05rem;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.22);
 }
 
 .hero-home .hero-acoes {
