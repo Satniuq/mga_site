@@ -37,11 +37,26 @@ C:.
 │
 ├───en
 │       about.html
+│       administrative-law.html
+│       civil-law.html
 │       contacts.html
+│       corporate-commercial.html
+│       criminal-law.html
+│       d2-visa-portugal.html
+│       d7-visa-portugal.html
+│       employment-labour-law.html
+│       family-law.html
+│       family-reunification-portugal.html
+│       family-succession-estate-planning.html
+│       golden-visa-portugal.html
 │       index.html
 │       legal-information.html
+│       litigation-arbitration.html
+│       notarial-services-formal-acts.html
 │       practice-areas.html
 │       privacy-policy.html
+│       public-procurement.html
+│       real-estate-investment.html
 │       residence-in-portugal.html
 │       team.html
 │
@@ -50,7 +65,7 @@ C:.
 │   │   logo.jpg
 │   │   logo1.jpg
 │   │
-│   └───Equipa
+│   └───equipa
 │           jsmiguel.jpg
 │
 └───js
