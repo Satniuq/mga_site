@@ -1,0 +1,52 @@
+# =========================
+# Projeto MGA_site
+# =========================
+
+# Amostras / materiais de apoio que não devem ir para o repositório
+imagens_sample/
+Apoio.txt
+Prompt tradução.txt
+tree.txt
+README_estado_processo_MGA.md
+
+# Ficheiros temporários / backup
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*.rej
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Vim
+*.swp
+*.swo
+
+# Eventuais ficheiros locais de configuração
+.env
+.env.*
