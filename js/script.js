@@ -27,6 +27,65 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 👀 Scroll reveal
+  const submenuItems = document.querySelectorAll(".menu-item-com-submenu");
+  const closeAllSubmenus = () => {
+    submenuItems.forEach((item) => item.classList.remove("submenu-open"));
+  };
+
+  const updateSubmenuTop = () => {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    const bottom = Math.round(header.getBoundingClientRect().bottom);
+    document.documentElement.style.setProperty("--submenu-top", `${bottom + 10}px`);
+  };
+
+  updateSubmenuTop();
+  window.addEventListener("resize", updateSubmenuTop);
+
+  submenuItems.forEach((item) => {
+    let closeTimer;
+    const submenu = item.querySelector(".submenu-areas");
+
+    const openSubmenu = () => {
+      clearTimeout(closeTimer);
+      updateSubmenuTop();
+      closeAllSubmenus();
+      item.classList.add("submenu-open");
+    };
+
+    const scheduleClose = () => {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        item.classList.remove("submenu-open");
+      }, 180);
+    };
+
+    item.addEventListener("pointerenter", openSubmenu);
+    item.addEventListener("pointerleave", scheduleClose);
+    item.addEventListener("mouseenter", openSubmenu);
+    item.addEventListener("mouseleave", scheduleClose);
+    item.addEventListener("focusin", openSubmenu);
+    item.addEventListener("focusout", scheduleClose);
+
+    if (submenu) {
+      submenu.addEventListener("pointerenter", () => clearTimeout(closeTimer));
+      submenu.addEventListener("pointerleave", scheduleClose);
+      submenu.addEventListener("mouseenter", () => clearTimeout(closeTimer));
+      submenu.addEventListener("mouseleave", scheduleClose);
+    }
+  });
+
+  document.querySelectorAll(".menu > li:not(.menu-item-com-submenu) > a").forEach((link) => {
+    link.addEventListener("pointerenter", closeAllSubmenus);
+    link.addEventListener("mouseenter", closeAllSubmenus);
+    link.addEventListener("focus", closeAllSubmenus);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeAllSubmenus();
+  });
+
   const elements = document.querySelectorAll(".scroll-reveal");
 
   const observer = new IntersectionObserver((entries) => {

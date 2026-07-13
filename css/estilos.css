@@ -221,6 +221,7 @@ nav {
 .menu {
   list-style: none;
   display: flex;
+  align-items: stretch;
   gap: 1.8em;
   margin: 0;
   padding: 0;
@@ -291,24 +292,24 @@ nav {
 
 .menu-item-com-submenu {
   position: relative;
-  padding-bottom: 28px; /* aumenta a zona hover para baixo */
-  margin-bottom: -28px; /* evita empurrar o layout */
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .menu-item-com-submenu::after {
   content: "";
   position: absolute;
-  left: -70px;   /* alarga bastante para a esquerda */
-  right: -70px;  /* e para a direita */
-  top: 100%;
-  height: 34px;
+  left: -0.85rem;
+  right: -0.85rem;
+  top: calc(100% - 0.15rem);
+  height: 2.35rem;
 }
 
 .submenu-areas {
   position: fixed;
-  top: 84px;
+  top: var(--submenu-top, 86px);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 8px);
   width: min(1120px, calc(100vw - 48px));
   background: rgba(255, 255, 255, 0.985);
   border: 1px solid rgba(215, 207, 203, 0.9);
@@ -318,16 +319,27 @@ nav {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+  transition: opacity 0.16s ease, visibility 0.16s ease, transform 0.16s ease;
   z-index: 1200;
 }
 
+.submenu-areas::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 18px;
+}
+
+.menu-item-com-submenu.submenu-open .submenu-areas,
 .menu-item-com-submenu:hover .submenu-areas,
 .menu-item-com-submenu:focus-within .submenu-areas,
 .submenu-areas:hover {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transform: translate(-50%, 0);
 }
 
 .submenu-areas-grid {
@@ -596,7 +608,12 @@ nav {
 }
 
 .home-main--signature .home-intro {
-  padding-top: 5.4em;
+  padding-top: 0;
+}
+
+.home-main--signature .home-intro.scroll-reveal {
+  opacity: 1;
+  transform: none;
 }
 
 .home-main--signature .home-areas {
@@ -1835,6 +1852,19 @@ footer {
   object-fit: cover;
 }
 
+.team-card-initials {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  background:
+    linear-gradient(135deg, rgba(138, 38, 50, 0.12), rgba(168, 137, 75, 0.16)),
+    var(--mga-bg-soft);
+  color: var(--mga-red-dark);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
 .team-card-body {
   display: flex;
   flex-direction: column;
@@ -1962,6 +1992,297 @@ footer {
   font-size: 0.84rem;
   line-height: 1.25;
   cursor: default;
+}
+
+/* =========================================================
+   JSM — reposicionamento institucional e SEO editorial
+   ========================================================= */
+
+:root {
+  --mga-green: #173d36;
+  --mga-brass: #a8894b;
+  --mga-ink: #191615;
+  --mga-paper: #fbfaf8;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0;
+}
+
+.hero-home--institutional {
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 7.2em 2em 2em;
+  border-radius: 0;
+  box-shadow: none;
+  background-position: center 42%;
+}
+
+.hero-home--institutional::before {
+  background:
+    linear-gradient(90deg, rgba(18, 15, 14, 0.82) 0%, rgba(18, 15, 14, 0.62) 48%, rgba(18, 15, 14, 0.36) 100%),
+    linear-gradient(180deg, rgba(18, 15, 14, 0.42) 0%, rgba(18, 15, 14, 0.68) 100%);
+}
+
+.hero-home--institutional .hero-conteudo {
+  width: min(760px, calc(100vw - 7rem));
+  margin: 0 0 0 clamp(3.5rem, 10vw, 13rem);
+  text-align: left;
+}
+
+.hero-home--institutional .hero-copy {
+  max-width: 760px;
+  margin: 0;
+}
+
+.hero-home--institutional h1 {
+  max-width: 18ch;
+  font-size: clamp(2.35rem, 4vw, 3.9rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.hero-home--institutional .hero-texto {
+  max-width: 680px;
+  margin: 0;
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.66;
+}
+
+.hero-home--institutional .hero-acoes {
+  justify-content: flex-start;
+  margin-top: 1.25rem;
+}
+
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  width: min(760px, 100%);
+  margin: 1rem 0 0;
+  padding: 0.65rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.hero-proof div {
+  min-width: 155px;
+  padding: 0.35rem 2rem 0.35rem 0;
+}
+
+.hero-proof dt {
+  margin: 0 0 0.15rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-proof dd {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+@media (min-width: 1200px) {
+  .home-intro-split {
+    max-width: min(1480px, calc(100vw - 120px));
+    grid-template-columns: minmax(560px, 0.98fr) minmax(360px, 0.62fr);
+    gap: clamp(3rem, 5vw, 5.5rem);
+  }
+
+  .home-intro-media {
+    max-width: 520px;
+    justify-self: end;
+  }
+}
+
+.home-section--tight {
+  padding-top: 3.4em;
+  padding-bottom: 3.4em;
+}
+
+.practice-feature {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr auto;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid rgba(168, 137, 75, 0.32);
+  border-left: 5px solid var(--mga-brass);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #fff 0%, var(--mga-paper) 100%);
+}
+
+.practice-feature h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 2.4vw, 2.2rem);
+}
+
+.practice-feature p {
+  margin: 0;
+  color: var(--mga-text);
+  line-height: 1.75;
+}
+
+.practice-feature-link {
+  align-self: center;
+  justify-self: end;
+  color: var(--mga-red);
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(138, 38, 50, 0.35);
+  white-space: nowrap;
+}
+
+.practice-feature-link:hover {
+  border-color: var(--mga-red);
+}
+
+.home-grid-areas-destaque {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-card,
+.area-card,
+.pagina-intro,
+.pagina-fecho,
+.areas-apoio-box,
+.sobre-principio,
+.home-contacto-box,
+.team-card {
+  border-radius: 8px;
+}
+
+.home-card-featured,
+.area-card--featured {
+  border-color: rgba(138, 38, 50, 0.24);
+  background:
+    linear-gradient(180deg, rgba(138, 38, 50, 0.045), rgba(255, 255, 255, 0) 46%),
+    #fff;
+}
+
+.home-card-featured::before,
+.area-card--featured::before {
+  background: var(--mga-brass);
+}
+
+.pagina-intro--lead {
+  background:
+    linear-gradient(135deg, rgba(23, 61, 54, 0.055), rgba(168, 137, 75, 0.045)),
+    #fff;
+  border-color: rgba(168, 137, 75, 0.2);
+}
+
+.areas-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.areas-mini-grid a {
+  display: block;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--mga-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--mga-title);
+  text-decoration: none;
+  font-weight: 700;
+  transition: border-color var(--mga-transition), color var(--mga-transition), background var(--mga-transition);
+}
+
+.areas-mini-grid a:hover {
+  border-color: rgba(138, 38, 50, 0.3);
+  color: var(--mga-red);
+  background: var(--mga-paper);
+}
+
+.sobre-principios--wide {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.secao a {
+  color: var(--mga-red);
+  font-weight: 650;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.area-card p {
+  color: var(--mga-text-soft);
+  line-height: 1.7;
+}
+
+.area-card h3 i,
+.areas-destaque .home-card h2 i {
+  color: var(--mga-brass);
+}
+
+@media (max-width: 1080px) {
+  .practice-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .practice-feature-link {
+    justify-self: start;
+    white-space: normal;
+  }
+
+  .home-grid-areas-destaque {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sobre-principios--wide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-home--institutional {
+    min-height: 0;
+    padding: 6.2em 1.35em 2em;
+  }
+
+  .hero-home--institutional .hero-conteudo {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+
+  .hero-home--institutional h1 {
+    max-width: 12.5ch;
+    font-size: clamp(2.05rem, 9.5vw, 2.72rem);
+  }
+
+  .hero-home--institutional .hero-acoes {
+    align-items: flex-start;
+  }
+
+  .home-section-header--intro h2 {
+    max-width: 100%;
+    font-size: clamp(1.8rem, 8vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  .hero-proof {
+    display: none;
+  }
+
+  .practice-feature {
+    padding: 1.35rem;
+  }
+
+  .home-grid-areas-destaque,
+  .areas-mini-grid,
+  .sobre-principios--wide {
+    grid-template-columns: 1fr;
+  }
 }
 
 .team-card[aria-pressed="true"] {
