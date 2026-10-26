@@ -913,10 +913,11 @@ nav {
 
 .conteudo-pagina {
   padding-top: 9.5em;
-  max-width: var(--mga-container-narrow);
+  width: min(1120px, calc(100vw - 56px));
+  max-width: none;
   margin: 0 auto;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 0;
+  padding-right: 0;
   text-align: left;
 }
 
@@ -967,9 +968,10 @@ nav {
 }
 
 .pagina-intro {
-  max-width: 920px;
+  width: 100%;
+  max-width: none;
   margin: 0 auto 2.4em;
-  padding: 1.35em 1.5em;
+  padding: 1.55em 1.8em;
   background-color: var(--mga-bg-soft);
   border: 1px solid var(--mga-border);
   border-radius: 6px;
@@ -977,6 +979,7 @@ nav {
 }
 
 .pagina-intro p {
+  max-width: 920px;
   margin: 0 0 0.8em;
   font-size: 1.02em;
   line-height: 1.75;
@@ -987,7 +990,8 @@ nav {
 }
 
 .pagina-fecho {
-  max-width: 900px;
+  width: 100%;
+  max-width: none;
   margin: 0 auto 2em;
   padding: 1.6em 1.5em;
   text-align: center;
@@ -997,7 +1001,8 @@ nav {
 }
 
 .pagina-fecho p {
-  margin: 0;
+  max-width: 860px;
+  margin: 0 auto;
   font-size: 1.02em;
   line-height: 1.75;
 }
@@ -1181,6 +1186,63 @@ nav {
   padding: 0.6em 1.2em;
   border: none;
   cursor: pointer;
+}
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(380px, 1.15fr);
+  gap: 1.2rem;
+  align-items: stretch;
+  margin-bottom: 2.4em;
+}
+
+.contacto-card {
+  background: #fff;
+  border: 1px solid var(--mga-border);
+  border-radius: 8px;
+  padding: 1.55em 1.65em;
+  box-shadow: var(--mga-shadow-sm);
+}
+
+.contacto-card--dados {
+  background:
+    linear-gradient(135deg, rgba(168, 137, 75, 0.07), rgba(255, 255, 255, 0) 58%),
+    #fff;
+}
+
+.contacto-card .secao-topo {
+  margin-bottom: 1.25em;
+}
+
+.contacto-card h2 {
+  font-size: 1.35em;
+  margin-bottom: 0.6em;
+  color: var(--mga-title);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.contacto-card p {
+  font-size: 1.02em;
+  line-height: 1.75;
+  margin-bottom: 0.9em;
+  color: var(--mga-text);
+  max-width: none;
+}
+
+.contacto-card .formulario {
+  max-width: none;
+  margin-top: 0;
+}
+
+.contacto-card .formulario input,
+.contacto-card .formulario textarea {
+  width: 100%;
+}
+
+.contacto-localizacao {
+  margin-top: 0;
 }
 
 .mapa-container {
@@ -1689,8 +1751,9 @@ footer {
 
   .conteudo-pagina {
     padding-top: 8.8em;
-    padding-left: 1.35em;
-    padding-right: 1.35em;
+    width: min(100%, calc(100vw - 32px));
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -1719,7 +1782,7 @@ footer {
    ========================================================= */
 
 .team-toolbar {
-  display: flex;
+  display: none;
   justify-content: center;
   margin: 0 0 1.6rem;
 }
@@ -2178,6 +2241,44 @@ h2 {
   border-color: rgba(168, 137, 75, 0.2);
 }
 
+.conteudo-pagina > .subtitulo {
+  max-width: 100%;
+  margin: 0 auto 2.7em;
+  padding-bottom: 1.85em;
+  border-bottom: 1px solid rgba(215, 207, 203, 0.9);
+  text-align: left;
+}
+
+.conteudo-pagina > .subtitulo .areas-etiqueta {
+  margin-bottom: 1rem;
+}
+
+.conteudo-pagina > .subtitulo h1 {
+  max-width: 900px;
+}
+
+.conteudo-pagina > .subtitulo .areas-subtitulo {
+  max-width: 760px;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+.conteudo-pagina .secao {
+  max-width: 100%;
+}
+
+.conteudo-pagina .secao p,
+.conteudo-pagina .secao ul {
+  max-width: 920px;
+}
+
+.conteudo-pagina .secao .lista-topicos,
+.conteudo-pagina .secao .sobre-principios,
+.conteudo-pagina .secao .areas-mini-grid {
+  max-width: none;
+}
+
 .areas-mini-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2222,6 +2323,12 @@ h2 {
 .area-card h3 i,
 .areas-destaque .home-card h2 i {
   color: var(--mga-brass);
+}
+
+@media (max-width: 900px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1080px) {

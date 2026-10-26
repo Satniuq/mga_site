@@ -1,0 +1,591 @@
+export const firm = {
+  name: 'Miguel, Goes & Associados',
+  legalName: 'Miguel, Goes & Associados - Sociedade de Advogados, SP, RL',
+  url: 'https://www.mga.com.pt',
+  email: 'advogados@mga.com.pt',
+  phone: '+351 213 580 247',
+  phoneHref: '+351213580247',
+  street: 'Avenida Miguel Bombarda, 147 - 1.º Dto.',
+  postcode: '1050-164',
+  founded: '1998',
+  updated: '2026-10-26',
+  formEndpoint: 'https://formspree.io/f/mzzrpvnq',
+};
+
+export const groups = {
+  public: { pt: 'Direito Público', en: 'Public Law' },
+  business: { pt: 'Empresas e crédito', en: 'Business and Debt Recovery' },
+  people: { pt: 'Pessoas e património', en: 'Individuals and Property' },
+};
+
+// Area descriptions are grounded in the supplied notes and existing practice pages.
+export const practices = [
+  {
+    id: 'public', group: 'public', icon: 'landmark', people: ['jsm', 'mjg'],
+    files: { pt: 'direito-publico.html', en: 'public-law.html' },
+    related: ['administrative', 'procurement', 'property'],
+    pt: {
+      title: 'Direito Público',
+      summary: 'Acompanhamento jurídico nas relações com o Estado, a Administração e outras entidades públicas.',
+      intro: 'Apoiamos particulares, empresas e entidades que precisam de atuar perante a Administração. Intervimos na preparação de requerimentos, no acompanhamento de procedimentos e na defesa de direitos perante decisões administrativas.',
+      services: ['Procedimentos e decisões administrativas', 'Relações com entidades públicas e concessionários', 'Contratação e execução de contratos públicos', 'Licenciamento e questões urbanísticas', 'Impugnação administrativa e contenciosa', 'Execução de sentenças e ações contra o Estado'],
+      sections: [
+        ['Antes da decisão administrativa', 'A identificação do procedimento, dos documentos necessários e dos prazos permite preparar a posição do cliente desde o início. Acompanhamos a tramitação junto de entidades da administração central e local, concessionários e entidades administrativas independentes.'],
+        ['Defesa de direitos e interesses', 'Analisamos atos administrativos, os seus efeitos e os meios de reação disponíveis. Quando necessário, acompanhamos a impugnação junto da Administração ou dos tribunais administrativos.'],
+        ['Contratos, território e atividade económica', 'Articulamos o Direito Administrativo com a contratação pública e o urbanismo quando a decisão pública condiciona um contrato, um imóvel ou a atividade do cliente.'],
+      ],
+    },
+    en: {
+      title: 'Public Law',
+      summary: 'Legal advice on dealings with the Portuguese State, public authorities and other public bodies.',
+      intro: 'We advise individuals, businesses and organisations on their dealings with public authorities in Portugal. Our work includes applications, administrative procedures and the protection of rights affected by public decisions.',
+      services: ['Administrative procedures and decisions', 'Dealings with public bodies and concession holders', 'Public procurement and public contracts', 'Licensing and urban planning', 'Administrative appeals and court proceedings', 'Enforcement of administrative judgments and claims against the State'],
+      sections: [
+        ['Before a public decision is made', 'We identify the applicable procedure, supporting documents and deadlines, and help prepare the client’s position. We assist with matters involving central and local government, concession holders and independent administrative bodies.'],
+        ['Protecting rights and interests', 'We assess administrative decisions, their effects and the available grounds for challenge. Where appropriate, we assist with administrative appeals and proceedings before the administrative courts.'],
+        ['Contracts, property and business', 'We bring together administrative law, public procurement and planning advice where a public decision affects a contract, property or business activity.'],
+      ],
+    },
+  },
+  {
+    id: 'administrative', group: 'public', icon: 'landmark', people: ['jsm', 'mjg'],
+    files: { pt: 'direito-administrativo.html', en: 'administrative-law.html' },
+    related: ['public', 'procurement', 'litigation'],
+    pt: {
+      title: 'Direito Administrativo',
+      summary: 'Procedimentos administrativos, licenças, autorizações e defesa perante atos da Administração.',
+      intro: 'Acompanhamos procedimentos de iniciativa dos particulares e da Administração, destinados à prática de atos ou à celebração de contratos administrativos. Analisamos a decisão, os seus efeitos e os meios e prazos de reação.',
+      services: ['Requerimentos e respostas a notificações', 'Licenças, autorizações e aprovações', 'Indeferimentos, revogações e decisões sancionatórias', 'Impugnação de atos administrativos', 'Atos de concessionários e entidades independentes', 'Execução de sentenças dos tribunais administrativos'],
+      sections: [
+        ['Procedimentos e requerimentos', 'Preparamos requerimentos, exposições e respostas perante entidades públicas. Acompanhamos a tramitação e os requisitos necessários à obtenção de licenças, autorizações e outros atos administrativos.'],
+        ['Impugnação e contencioso', 'Perante uma decisão desfavorável, analisamos a fundamentação, os efeitos jurídicos e os prazos aplicáveis. A intervenção pode passar por reação administrativa ou contenciosa, incluindo ações contra o Estado e execução de sentenças.'],
+      ],
+    },
+    en: {
+      title: 'Administrative Law',
+      summary: 'Administrative procedures, licensing and challenges to decisions made by public authorities in Portugal.',
+      intro: 'We assist with administrative procedures initiated by individuals or public authorities, including procedures leading to administrative decisions or contracts. We assess the effects of a decision and the available routes and deadlines for challenging it.',
+      services: ['Applications and responses to official notices', 'Licences, authorisations and approvals', 'Refusals, revocations and administrative penalties', 'Challenges to administrative decisions', 'Decisions by concession holders and independent bodies', 'Enforcement of administrative court judgments'],
+      sections: [
+        ['Applications and procedures', 'We prepare applications, submissions and responses to public authorities. We advise on the documents and procedural requirements for licences, authorisations and other administrative decisions.'],
+        ['Appeals and court proceedings', 'When a decision is unfavourable, we assess its reasoning, legal effects and the relevant deadlines. We assist with administrative appeals and court proceedings, including claims against the State and enforcement of judgments.'],
+      ],
+    },
+  },
+  {
+    id: 'procurement', group: 'public', icon: 'file-contract', people: ['jsm'],
+    files: { pt: 'contratacao-publica.html', en: 'public-procurement.html' },
+    related: ['public', 'administrative', 'litigation'],
+    pt: {
+      title: 'Contratação Pública',
+      summary: 'Apoio em concursos públicos, propostas, exclusões, adjudicação e execução de contratos públicos.',
+      intro: 'Acompanhamos procedimentos de contratação pública nas modalidades previstas no Código dos Contratos Públicos. A apresentação de uma proposta exige análise formal e substantiva: um requisito incumprido pode determinar a exclusão de uma proposta competitiva.',
+      services: ['Análise do programa e do caderno de encargos', 'Requisitos de candidaturas e propostas', 'Pedidos de esclarecimento e comunicações', 'Decisões de exclusão e adjudicação', 'Contencioso pré-contratual', 'Execução e litígios de contratos públicos'],
+      sections: [
+        ['Preparação e apresentação de propostas', 'O acompanhamento jurídico na tramitação pode ser tão importante como o acompanhamento técnico. Analisamos as peças do procedimento, as exigências documentais e os riscos de exclusão, preparando a posição do concorrente.'],
+        ['Decisões e contencioso pré-contratual', 'Antes da celebração do contrato podem surgir questões relativas à admissão, classificação ou adjudicação. Avaliamos a decisão, os meios de reação e os prazos aplicáveis.'],
+        ['Execução do contrato', 'Acompanhamos questões de interpretação, cumprimento de obrigações, alterações contratuais e litígios que surjam durante a execução de contratos administrativos.'],
+      ],
+    },
+    en: {
+      title: 'Public Procurement',
+      summary: 'Advice on public tenders, bids, exclusion and award decisions, and the performance of public contracts.',
+      intro: 'We advise on public procurement procedures under the Portuguese Public Contracts Code. Both the substance and the formal requirements of a bid matter: a procedural omission may lead to the exclusion of an otherwise competitive offer.',
+      services: ['Review of tender documents and specifications', 'Requirements for applications and bids', 'Requests for clarification and communications', 'Exclusion and award decisions', 'Pre-contractual litigation', 'Public contract performance and disputes'],
+      sections: [
+        ['Preparing and submitting a bid', 'Legal preparation supports the technical work required for a tender. We review the procurement documents, supporting information and grounds for potential exclusion, and help prepare the bidder’s legal position.'],
+        ['Decisions and challenges', 'Questions may arise before a contract is signed, including admission, scoring and award decisions. We assess the decision, available remedies and applicable deadlines.'],
+        ['Contract performance', 'We advise on contractual interpretation, compliance, changes and disputes arising during the performance of public contracts.'],
+      ],
+    },
+  },
+  {
+    id: 'corporate', group: 'business', icon: 'briefcase', people: ['mcp'],
+    files: { pt: 'comercial-societario.html', en: 'corporate-commercial.html' },
+    related: ['employment', 'credit', 'property'],
+    pt: {
+      title: 'Direito Comercial e Societário',
+      summary: 'Sociedades, sócios e contratos que dão estrutura jurídica à atividade empresarial.',
+      intro: 'Apoiamos sociedades, empresários e investidores na constituição e organização das empresas, nas relações entre sócios e na preparação de contratos comerciais. A intervenção acompanha o início da atividade, o seu desenvolvimento e os momentos de mudança ou conflito.',
+      services: ['Constituição e reorganização de sociedades', 'Entrada e saída de sócios e cessão de quotas', 'Pactos sociais e acordos parassociais', 'Atas, deliberações e governação societária', 'Contratos comerciais', 'Prevenção e resolução de conflitos entre sócios'],
+      sections: [
+        ['Sociedades e relações entre sócios', 'Acompanhamos a definição das regras de funcionamento da sociedade, a administração, as deliberações e a transmissão de participações. Analisamos os efeitos jurídicos de alterações na estrutura da empresa.'],
+        ['Contratos e atividade empresarial', 'Preparamos, revemos e acompanhamos a negociação de contratos com clientes, fornecedores, distribuidores, parceiros e investidores. A documentação contratual deve refletir a operação e os objetivos da empresa.'],
+      ],
+    },
+    en: {
+      title: 'Corporate and Commercial Law',
+      summary: 'Companies, shareholders and commercial contracts supporting business activity in Portugal.',
+      intro: 'We advise companies, business owners and investors on company formation, internal organisation, shareholder relationships and commercial contracts. Our work covers the start of a business, its development and periods of change or dispute.',
+      services: ['Company formation and reorganisation', 'Transfers of shares and changes in ownership', 'Articles of association and shareholders’ agreements', 'Corporate resolutions and governance', 'Commercial contracts', 'Prevention and resolution of shareholder disputes'],
+      sections: [
+        ['Companies and shareholders', 'We advise on the rules governing a company, its management, decision-making and transfers of ownership. We assess the legal implications of changes to the business structure.'],
+        ['Commercial contracts', 'We draft, review and assist with the negotiation of contracts with customers, suppliers, distributors, partners and investors. Contractual terms should reflect the transaction and the company’s objectives.'],
+      ],
+    },
+  },
+  {
+    id: 'employment', group: 'business', icon: 'user-tie', people: ['mcp'],
+    files: { pt: 'direito-trabalho.html', en: 'employment-labour-law.html' },
+    related: ['corporate', 'litigation', 'criminal'],
+    pt: {
+      title: 'Direito do Trabalho',
+      summary: 'Contratação, relações laborais, procedimentos disciplinares e cessação do contrato de trabalho.',
+      intro: 'Acompanhamos empregadores e trabalhadores na organização e execução da relação laboral. Apoiamos a preparação de contratos, a análise de deveres e alterações no vínculo e a resposta a situações de conflito ou cessação.',
+      services: ['Contratos de trabalho e admissão', 'Direitos e deveres de empregadores e trabalhadores', 'Alterações na relação laboral', 'Procedimentos disciplinares e sanções', 'Despedimento, revogação e outras formas de cessação', 'Litígios laborais'],
+      sections: [
+        ['Contratação e execução do contrato', 'Preparamos e analisamos contratos com atenção à função, às condições acordadas e à organização da prestação de trabalho. Acompanhamos questões que surgem durante o vínculo, incluindo alterações e incumprimentos.'],
+        ['Disciplina, cessação e litígios', 'Prestamos apoio em procedimentos disciplinares e nas diferentes formas de cessação do contrato. Analisamos os factos, os documentos, as formalidades e os prazos necessários à defesa da posição do cliente.'],
+      ],
+    },
+    en: {
+      title: 'Employment and Labour Law',
+      summary: 'Employment contracts, workplace relations, disciplinary procedures and termination of employment.',
+      intro: 'We advise employers and employees on employment relationships in Portugal. We assist with contracts, workplace duties, changes to employment terms and disputes or termination.',
+      services: ['Employment contracts and recruitment', 'Employer and employee rights and duties', 'Changes to employment terms', 'Disciplinary procedures and sanctions', 'Dismissal, settlement agreements and other forms of termination', 'Employment disputes'],
+      sections: [
+        ['Contracts and workplace relations', 'We prepare and review employment contracts with attention to the role, agreed terms and working arrangements. We also advise on issues arising during employment, including changes and alleged breaches.'],
+        ['Disciplinary action and termination', 'We assist with disciplinary procedures and the different forms of termination available under Portuguese law. We assess the facts, documents, procedural requirements and deadlines relevant to the client’s position.'],
+      ],
+    },
+  },
+  {
+    id: 'criminal', group: 'people', icon: 'scale-balanced', people: ['cfs'],
+    files: { pt: 'direito-penal.html', en: 'criminal-law.html' },
+    related: ['litigation', 'employment', 'corporate'],
+    pt: {
+      title: 'Direito Penal',
+      summary: 'Defesa penal e assistência ao ofendido, desde a fase inicial até ao julgamento.',
+      intro: 'Acompanhamos clientes em situações que envolvem denúncias, queixas, constituição como arguido, interrogatórios e medidas de coação. A intervenção atende à posição processual do cliente e às consequências de cada ato.',
+      services: ['Queixas e denúncias', 'Assistência em interrogatório', 'Constituição como arguido', 'Medidas de coação e reação processual', 'Inquérito, instrução e julgamento', 'Defesa penal e assistência ao ofendido'],
+      sections: [
+        ['Acompanhamento desde o início', 'Analisamos os factos e a documentação disponível para preparar a resposta e acompanhar atos processuais. Os primeiros contactos e declarações podem ter relevância no desenvolvimento do processo.'],
+        ['Defesa e intervenção no processo', 'Apoiamos a defesa de quem é visado em processo penal e a intervenção de quem tenha sido ofendido. A atuação exige análise da prova, conhecimento do processo e atenção aos direitos e interesses em causa.'],
+      ],
+    },
+    en: {
+      title: 'Criminal Law',
+      summary: 'Criminal defence and assistance to victims, from the initial investigation through to trial.',
+      intro: 'We assist clients with criminal complaints, formal suspect status, questioning and pre-trial restrictions under Portuguese law. Our advice addresses the client’s procedural rights and the consequences of each step.',
+      services: ['Criminal complaints and reports', 'Legal assistance during questioning', 'Advice on formal suspect status', 'Pre-trial restrictions and challenges', 'Investigation, judicial examination and trial', 'Criminal defence and assistance to victims'],
+      sections: [
+        ['Advice from the outset', 'We assess the facts and available documents to prepare a response and assist during procedural acts. Initial statements and decisions may affect the course of the proceedings.'],
+        ['Defence and participation in proceedings', 'We act for people facing criminal proceedings and assist those harmed by alleged offences. The work requires careful examination of the evidence, the case and the rights at stake.'],
+      ],
+    },
+  },
+  {
+    id: 'credit', group: 'business', icon: 'folder-open', people: ['mm', 'nsc', 'sca', 'afs'],
+    files: { pt: 'recuperacao-credito-gestao-processos.html', en: 'credit-recovery-process-management.html' },
+    related: ['litigation', 'corporate', 'civil'],
+    pt: {
+      title: 'Recuperação de Crédito e Execuções',
+      summary: 'Recuperação extrajudicial e judicial de crédito ao consumo e hipotecário. Gestão continuada de processos em massa.',
+      intro: 'A MG&A tem mais de 20 anos de experiência em recuperação de crédito ao consumo e de crédito hipotecário. Acompanhamos empresas e clientes institucionais com uma pluralidade de créditos, com ou sem garantia, que exigem triagem jurídica, seguimento e informação regular.',
+      services: ['Recuperação extrajudicial e judicial de créditos', 'Crédito ao consumo e crédito hipotecário', 'Negociação e formalização de acordos de pagamento', 'Acompanhamento de acordos e reação ao incumprimento', 'Ações judiciais e execuções', 'Gestão de processos em massa e reporte ao cliente'],
+      sections: [
+        ['Negociação e recuperação judicial', 'Contactamos devedores para procurar o pagamento ou a formalização de um acordo. Acompanhamos os acordos celebrados e a reação ao incumprimento. Quando a via negocial não tem sucesso, preparamos a intervenção judicial adequada.'],
+        ['Execuções e situações de insolvência', 'Acompanhamos as ações junto dos tribunais e, nas execuções, também junto dos agentes de execução. Analisamos a articulação da recuperação do crédito com situações de insolvência do devedor quando estas afetam a posição do credor.'],
+        ['Processos em massa, atenção a cada processo', 'O tratamento de uma carteira exige controlo de prazos, organização da informação e continuidade. Os meios e a experiência da sociedade permitem assegurar reporte continuado ao cliente e acompanhar cada processo sem perder a visão de conjunto.'],
+      ],
+    },
+    en: {
+      title: 'Debt Recovery and Enforcement',
+      summary: 'Out-of-court and judicial recovery of consumer and mortgage debt. Ongoing management of high-volume case portfolios.',
+      intro: 'MG&A has more than 20 years of experience in consumer and mortgage debt recovery. We assist businesses and institutional clients with portfolios of secured and unsecured debts requiring legal assessment, consistent follow-up and regular reporting.',
+      services: ['Out-of-court and judicial debt recovery', 'Consumer and mortgage debt', 'Negotiation and payment agreements', 'Monitoring agreements and responding to default', 'Court claims and enforcement proceedings', 'High-volume case management and client reporting'],
+      sections: [
+        ['Negotiation and court claims', 'We contact debtors to seek payment or negotiate payment arrangements. We monitor agreed terms and respond to default. Where negotiations are unsuccessful, we prepare the appropriate court action.'],
+        ['Enforcement and debtor insolvency', 'We follow proceedings before the courts and work with enforcement agents during enforcement. We also assess how a debtor’s insolvency affects the creditor’s position and the recovery strategy.'],
+        ['Portfolio management with individual attention', 'Managing a portfolio requires deadline monitoring, organised information and continuity. The firm’s resources and experience support ongoing reporting and attention to each case within the wider portfolio.'],
+      ],
+    },
+  },
+  {
+    id: 'property', group: 'public', icon: 'building', people: ['mjg', 'mcp', 'jvq'],
+    files: { pt: 'imobiliario-investimento.html', en: 'real-estate-investment.html' },
+    related: ['administrative', 'corporate', 'civil'],
+    pt: {
+      title: 'Propriedade, Imobiliário e Urbanismo',
+      summary: 'Operações imobiliárias, investimento, licenciamento e proteção do património.',
+      intro: 'Acompanhamos particulares, famílias, empresas e investidores na aquisição, utilização e transmissão de imóveis. Articulamos a componente contratual e patrimonial com o licenciamento e as questões urbanísticas que condicionam cada operação.',
+      services: ['Compra e venda e contratos-promessa', 'Arrendamento e exploração de imóveis', 'Análise jurídica e documental do imóvel', 'Titularidade, registos e regularização', 'Licenciamento e urbanismo', 'Investimento e estruturação patrimonial'],
+      sections: [
+        ['Antes de adquirir ou contratar', 'Analisamos a titularidade, os documentos e as condicionantes do imóvel. Preparamos e revemos contratos, atendendo ao preço, aos prazos, às obrigações e aos riscos da operação.'],
+        ['Urbanismo e licenciamento', 'A utilização de um imóvel pode depender da sua situação urbanística, do histórico de licenciamento e das regras aplicáveis. Acompanhamos estas questões e a relação com as entidades competentes.'],
+        ['Investimento e património', 'A aquisição ou transmissão de imóveis pode cruzar-se com sociedades, família e sucessões. Enquadramos a operação nos objetivos patrimoniais e na situação jurídica do cliente.'],
+      ],
+    },
+    en: {
+      title: 'Property, Real Estate and Urban Planning',
+      summary: 'Property transactions, investment, licensing and protection of assets in Portugal.',
+      intro: 'We assist individuals, families, businesses and investors with the acquisition, use and transfer of property. Our advice brings together contracts, ownership and the planning or licensing issues affecting the transaction.',
+      services: ['Property purchases, sales and preliminary contracts', 'Leases and property use', 'Legal due diligence and document review', 'Title, registration and regularisation', 'Licensing and urban planning', 'Investment and ownership structures'],
+      sections: [
+        ['Before a purchase or agreement', 'We review title, supporting documents and restrictions affecting the property. We prepare and review contracts with attention to price, deadlines, obligations and transaction risks.'],
+        ['Planning and licensing', 'The intended use of a property may depend on its planning status, licensing history and applicable rules. We advise on these matters and assist with dealings with the relevant authorities.'],
+        ['Investment and ownership', 'A property transaction may also involve company, family or inheritance matters. We consider the transaction within the client’s wider objectives and legal circumstances.'],
+      ],
+    },
+  },
+  {
+    id: 'civil', group: 'people', icon: 'file-signature', people: [],
+    files: { pt: 'direito-civil.html', en: 'civil-law.html' },
+    related: ['property', 'family', 'litigation'],
+    pt: {
+      title: 'Direito Civil',
+      summary: 'Contratos, propriedade, arrendamento, condomínio e responsabilidade civil.',
+      intro: 'Apoiamos a análise, preparação e defesa de direitos nas relações entre particulares. Intervimos na celebração de contratos, em situações de incumprimento e em conflitos relativos a bens, obrigações ou danos.',
+      services: ['Preparação e revisão de contratos', 'Incumprimento e responsabilidade contratual', 'Propriedade, posse e proteção de bens', 'Arrendamento e relações entre senhorio e arrendatário', 'Condomínio e conflitos de vizinhança', 'Responsabilidade civil e indemnizações'],
+      sections: [
+        ['Contratos e obrigações', 'Analisamos o que foi acordado, os direitos e deveres de cada parte e as consequências do incumprimento. Preparamos contratos e comunicações que reflitam a relação e protejam a posição do cliente.'],
+        ['Património e conflitos civis', 'Acompanhamos questões sobre titularidade e utilização de bens, arrendamento, condomínio, compra e venda e doações. Em situações de dano, analisamos os pressupostos da responsabilidade e da indemnização.'],
+      ],
+    },
+    en: {
+      title: 'Civil Law',
+      summary: 'Contracts, property, leases, condominium disputes and civil liability in Portugal.',
+      intro: 'We advise on rights and obligations in relationships between private individuals and organisations. We assist with contracts, breaches of obligations and disputes involving ownership, property use or loss.',
+      services: ['Drafting and review of contracts', 'Breach of contract and contractual liability', 'Ownership, possession and protection of assets', 'Leases and landlord-tenant relations', 'Condominium and neighbour disputes', 'Civil liability and compensation claims'],
+      sections: [
+        ['Contracts and obligations', 'We assess the agreed terms, each party’s obligations and the consequences of a breach. We prepare contracts and formal communications suited to the relationship and the client’s position.'],
+        ['Property and civil disputes', 'We assist with ownership and use of assets, leases, condominium matters, sales and gifts. Where loss or damage has occurred, we assess the basis for liability and compensation.'],
+      ],
+    },
+  },
+  {
+    id: 'family', group: 'people', icon: 'users', people: ['cfs'],
+    files: { pt: 'familia.html', en: 'family-law.html' },
+    related: ['succession', 'civil', 'notarial'],
+    pt: {
+      title: 'Direito da Família',
+      summary: 'Divórcio, responsabilidades parentais, alimentos e questões patrimoniais da vida familiar.',
+      intro: 'Acompanhamos pessoas e famílias em momentos de reorganização da vida familiar. A intervenção considera os efeitos pessoais e patrimoniais de cada decisão, com especial atenção aos interesses das crianças.',
+      services: ['Divórcio e separação', 'Regulação das responsabilidades parentais', 'Alteração de regimes e acordos parentais', 'Pensão de alimentos', 'União de facto', 'Questões patrimoniais associadas à separação'],
+      sections: [
+        ['Divórcio e reorganização familiar', 'Apoiamos o enquadramento do divórcio ou da separação e das questões que daí resultam. Analisamos os efeitos sobre o património e as relações familiares, procurando soluções adequadas à situação.'],
+        ['Filhos e responsabilidades parentais', 'Acompanhamos questões de residência, convívios, alimentos e exercício das responsabilidades parentais. O trabalho atende ao superior interesse da criança e à estabilidade das soluções.'],
+        ['União de facto e património', 'Apoiamos a análise da titularidade dos bens, das contribuições para a vida em comum e dos efeitos jurídicos da cessação da relação.'],
+      ],
+    },
+    en: {
+      title: 'Family Law',
+      summary: 'Divorce, parental responsibilities, maintenance and financial matters arising from family relationships.',
+      intro: 'We assist individuals and families during changes to family life. Our advice considers the personal and financial effects of each decision, with particular attention to children’s interests.',
+      services: ['Divorce and separation', 'Parental responsibility arrangements', 'Changes to parenting arrangements', 'Child maintenance', 'Unmarried partnerships', 'Financial and property matters following separation'],
+      sections: [
+        ['Divorce and separation', 'We advise on divorce, separation and related issues. We assess the consequences for property and family relationships and help identify a suitable course of action.'],
+        ['Children and parental responsibilities', 'We assist with children’s residence, contact arrangements, maintenance and parental responsibilities. The child’s best interests and the stability of arrangements guide this work.'],
+        ['Unmarried partners and property', 'We advise on ownership, contributions to shared life and the legal consequences of the end of an unmarried relationship under Portuguese law.'],
+      ],
+    },
+  },
+  {
+    id: 'succession', group: 'people', icon: 'file-lines', people: ['sca'],
+    files: { pt: 'sucessoes-herancas.html', en: 'family-succession-estate-planning.html' },
+    related: ['family', 'property', 'notarial'],
+    pt: {
+      title: 'Sucessões e Heranças',
+      summary: 'Testamentos, heranças, partilhas e organização da transmissão do património.',
+      intro: 'Acompanhamos a preparação da sucessão e as questões que surgem após um falecimento. Apoiamos os herdeiros na identificação dos bens, na definição dos seus direitos e na formalização da transmissão do património.',
+      services: ['Testamentos e planeamento sucessório', 'Habilitação de herdeiros', 'Aceitação e repúdio da herança', 'Identificação de bens e direitos', 'Partilhas e composição dos quinhões', 'Regularização e transmissão do património'],
+      sections: [
+        ['Preparar a sucessão', 'Apoiamos a elaboração de testamentos e a análise de soluções de transmissão patrimonial. O enquadramento considera a vontade do titular, a estrutura familiar e os limites legais aplicáveis.'],
+        ['Herdeiros, partilhas e regularização', 'Acompanhamos a identificação dos herdeiros e a composição da herança. Prestamos apoio nas questões de aceitação ou repúdio, na partilha e nos atos necessários à regularização dos bens.'],
+      ],
+    },
+    en: {
+      title: 'Succession and Inheritance',
+      summary: 'Wills, inheritance, division of estates and planning for the transfer of assets.',
+      intro: 'We advise on succession planning and the issues arising after a death. We assist heirs with identifying assets, establishing their rights and completing the legal steps required to transfer an estate.',
+      services: ['Wills and succession planning', 'Formal identification of heirs', 'Acceptance or renunciation of inheritance', 'Identification of estate assets and rights', 'Division of estates and inheritance shares', 'Registration and transfer of inherited assets'],
+      sections: [
+        ['Planning ahead', 'We assist with wills and arrangements for transferring assets. Advice takes account of the owner’s wishes, family circumstances and the limits imposed by applicable law.'],
+        ['Heirs and estate administration', 'We help establish who the heirs are and what the estate comprises. We advise on acceptance or renunciation, division of the estate and the documents and registrations required to transfer assets.'],
+      ],
+    },
+  },
+  {
+    id: 'litigation', group: 'people', icon: 'scale-balanced', people: ['mcp', 'cfs', 'mm', 'nsc'],
+    files: { pt: 'contencioso-arbitragem.html', en: 'litigation-arbitration.html' },
+    related: ['civil', 'corporate', 'credit'],
+    pt: {
+      title: 'Contencioso e Arbitragem',
+      summary: 'Prevenção e resolução de litígios, negociação e representação em processos judiciais e arbitrais.',
+      intro: 'Acompanhamos conflitos de natureza civil, comercial, patrimonial, familiar e laboral. Analisamos os factos e a prova para definir uma estratégia, desde a fase de negociação até à intervenção judicial ou arbitral.',
+      services: ['Análise pré-contenciosa', 'Negociação e acordos', 'Processos judiciais e arbitrais', 'Incumprimento contratual', 'Responsabilidade civil e pedidos de indemnização', 'Execução e recuperação de créditos'],
+      sections: [
+        ['Antes de avançar para tribunal', 'Revemos a documentação, clarificamos a posição jurídica do cliente e avaliamos as alternativas. Quando adequado, preparamos comunicações e acompanhamos negociações para procurar uma solução por acordo.'],
+        ['Representação e estratégia processual', 'Quando o conflito exige processo, acompanhamos a ação e os atos necessários à defesa dos interesses do cliente. A estratégia atende à prova, aos riscos e aos objetivos concretos da intervenção.'],
+      ],
+    },
+    en: {
+      title: 'Litigation and Arbitration',
+      summary: 'Dispute prevention and resolution, negotiation and representation in court and arbitration proceedings.',
+      intro: 'We assist with civil, commercial, property, family and employment disputes. We assess the facts and evidence to develop a strategy, from initial negotiations through to court or arbitration proceedings.',
+      services: ['Assessment before proceedings', 'Negotiation and settlements', 'Court and arbitration proceedings', 'Breach of contract', 'Civil liability and compensation claims', 'Enforcement and debt recovery'],
+      sections: [
+        ['Before going to court', 'We review the documents, clarify the client’s legal position and assess the available options. Where appropriate, we prepare formal communications and assist with negotiations aimed at reaching a settlement.'],
+        ['Representation and case strategy', 'Where proceedings are necessary, we assist with the claim and the steps required to protect the client’s interests. The strategy takes account of the evidence, risks and objectives of the case.'],
+      ],
+    },
+  },
+  {
+    id: 'notarial', group: 'business', icon: 'stamp', people: [],
+    files: { pt: 'solicitadoria-atos-notariais.html', en: 'notarial-services-formal-acts.html' },
+    related: ['property', 'family', 'succession'],
+    pt: {
+      title: 'Atos Notariais e Formalização Documental',
+      summary: 'Reconhecimentos, autenticações, certificações e preparação de documentos com efeitos jurídicos.',
+      intro: 'Apoiamos a preparação e a formalização de documentos necessários a negócios e situações pessoais, familiares ou empresariais. A intervenção atende à finalidade do documento e às formalidades exigidas para a sua utilização em Portugal ou no estrangeiro.',
+      services: ['Reconhecimento de assinaturas', 'Autenticação de documentos particulares', 'Fotocópias certificadas', 'Procurações', 'Certificação de traduções', 'Consentimentos conjugais e autorizações de saída de menores'],
+      sections: [
+        ['Reconhecimentos e autenticações', 'Acompanhamos atos de reconhecimento, autenticação e certificação, incluindo documentos particulares autenticados. Analisamos os requisitos do ato, a identificação dos intervenientes e os documentos de suporte.'],
+        ['Procurações e autorizações', 'Preparamos procurações com poderes adequados ao ato pretendido, consentimentos e autorizações. A redação deve ser compatível com a finalidade e com os requisitos da entidade perante a qual o documento será utilizado.'],
+      ],
+    },
+    en: {
+      title: 'Document Certification and Formalities',
+      summary: 'Signature certification, document authentication, certified copies and preparation of legal documents.',
+      intro: 'We assist with documents needed for transactions and personal, family or business matters. Our work addresses the purpose of the document and the formalities required for its use in Portugal or abroad.',
+      services: ['Signature certification', 'Authentication of private documents', 'Certified copies', 'Powers of attorney', 'Certification of translations', 'Spousal consent and travel authorisations for minors'],
+      sections: [
+        ['Certification and authentication', 'We assist with certification and authentication formalities, including authenticated private documents. We review the requirements, identification of the parties and supporting documents for the particular act.'],
+        ['Powers of attorney and authorisations', 'We prepare powers of attorney, consents and authorisations suited to their intended purpose. The wording and scope of authority must meet the requirements of the body receiving the document.'],
+      ],
+    },
+  },
+  {
+    id: 'immigration', group: 'people', icon: 'globe', people: ['jvq'],
+    files: { pt: 'direito-dos-estrangeiros.html', en: 'immigration-law.html' },
+    related: ['residence', 'reunification', 'property'],
+    pt: {
+      title: 'Direito dos Estrangeiros',
+      summary: 'Residência, vistos, nacionalidade e enquadramento jurídico de cidadãos estrangeiros em Portugal.',
+      intro: 'Acompanhamos cidadãos estrangeiros, famílias e profissionais que precisam de preparar ou regularizar a sua situação em Portugal. A intervenção considera o estatuto de residência e a sua articulação com a família, o património e a atividade económica.',
+      services: ['Análise da situação e da via de residência', 'Preparação documental de pedidos', 'Vistos de residência D2 e D7', 'Autorização de residência para investimento', 'Reagrupamento familiar', 'Questões de nacionalidade e articulação com a Administração'],
+      sections: [
+        ['Definir a via adequada', 'A solução depende da nacionalidade, da situação de residência, da atividade e da estrutura familiar do cliente. Analisamos os pressupostos e os documentos necessários à via aplicável.'],
+        ['Documentos e acompanhamento', 'Apoiamos a organização de documentos portugueses e estrangeiros, legalizações, traduções e comunicações. Articulamos estas diligências com as questões familiares, empresariais e patrimoniais associadas.'],
+      ],
+    },
+    en: {
+      title: 'Immigration and Nationality',
+      summary: 'Residence, visas, nationality and legal advice for foreign nationals in Portugal.',
+      intro: 'We assist foreign nationals, families and professionals with preparing or regularising their position in Portugal. We consider residence status alongside family, property and business matters.',
+      services: ['Assessment of residence options', 'Preparation of application documents', 'D2 and D7 residence visas', 'Residence permits for investment activity', 'Family reunification', 'Nationality matters and dealings with public authorities'],
+      sections: [
+        ['Choosing a suitable route', 'The available options depend on nationality, residence status, activity and family circumstances. We assess the applicable requirements and the supporting documents for the relevant route.'],
+        ['Documents and ongoing assistance', 'We help organise Portuguese and foreign documents, legalisation, translations and communications. We coordinate these steps with associated family, business and property matters.'],
+      ],
+    },
+  },
+  {
+    id: 'residence', group: 'people', icon: 'globe', people: ['jvq'],
+    files: { pt: 'residencia-em-portugal.html', en: 'residence-in-portugal.html' },
+    related: ['d2', 'd7', 'ari', 'reunification'],
+    pt: {
+      title: 'Residência em Portugal',
+      summary: 'Preparação jurídica da residência e instalação de cidadãos estrangeiros e das suas famílias.',
+      intro: 'Apoiamos a análise das vias de residência e a preparação da instalação em Portugal. O trabalho pode envolver o pedido principal, documentação estrangeira, alojamento e questões familiares ou empresariais.',
+      services: ['Análise das vias de residência', 'Vistos D2 e D7', 'Residência para investimento', 'Reagrupamento familiar', 'Documentos, legalizações e traduções', 'Articulação com habitação e atividade económica'],
+      sections: [
+        ['Residência e preparação da mudança', 'Analisamos a situação pessoal e familiar para identificar a via aplicável. Apoiamos a preparação do pedido e dos documentos necessários, atendendo às exigências da entidade competente.'],
+        ['Instalação em Portugal', 'A mudança pode exigir diligências sobre NIF, representação fiscal quando aplicável, conta bancária e habitação. Articulamos o processo com sociedades, património e família sempre que necessário.'],
+      ],
+    },
+    en: {
+      title: 'Residence in Portugal',
+      summary: 'Legal preparation for residence and relocation to Portugal for foreign nationals and their families.',
+      intro: 'We advise on residence options and the legal preparation for a move to Portugal. The work may involve the main application, foreign documents, accommodation and related family or business matters.',
+      services: ['Assessment of residence options', 'D2 and D7 visas', 'Residence through eligible investment', 'Family reunification', 'Documents, legalisation and translations', 'Coordination with housing and business matters'],
+      sections: [
+        ['Preparing a residence application', 'We assess personal and family circumstances to identify an appropriate route. We assist with the application and supporting documents required by the relevant authority.'],
+        ['Relocating to Portugal', 'A move may involve a tax identification number, tax representation where applicable, banking and accommodation. We coordinate residence advice with company, property and family matters where needed.'],
+      ],
+    },
+  },
+  {
+    id: 'd2', group: 'people', icon: 'briefcase', people: ['jvq'],
+    files: { pt: 'visto-d2-portugal.html', en: 'd2-visa-portugal.html' },
+    related: ['residence', 'corporate', 'reunification'],
+    pt: {
+      title: 'Visto D2 em Portugal',
+      summary: 'Apoio a empreendedores e profissionais independentes na preparação do pedido de visto de residência.',
+      intro: 'Acompanhamos a preparação de pedidos D2 associados a um projeto empresarial ou a atividade independente. Analisamos a coerência entre a atividade, os meios disponíveis, a documentação e a instalação em Portugal.',
+      services: ['Análise do projeto empresarial ou profissional', 'Preparação documental do pedido', 'Articulação com o plano de negócio', 'Constituição de sociedade quando adequada', 'NIF, conta bancária e alojamento', 'Articulação com a residência e a família'],
+      sections: [
+        ['O projeto e a sua documentação', 'A preparação do pedido atende à atividade proposta, à sua estrutura e aos documentos que a sustentam. Os requisitos devem ser confirmados para o posto consular e para a situação concreta do requerente.'],
+        ['Empresa e instalação', 'Apoiamos a escolha e a formalização da estrutura jurídica adequada ao projeto e a organização dos documentos estrangeiros. Articulamos estas diligências com os aspetos patrimoniais, contabilísticos e familiares relevantes.'],
+      ],
+    },
+    en: {
+      title: 'D2 Visa in Portugal',
+      summary: 'Assistance for entrepreneurs and self-employed professionals preparing a Portuguese residence visa application.',
+      intro: 'We assist with D2 visa applications connected with a business project or self-employed activity. We assess the proposed activity, available resources, supporting documents and relocation plans together.',
+      services: ['Review of the business or professional project', 'Application document preparation', 'Coordination with the business plan', 'Company formation where appropriate', 'Tax number, banking and accommodation', 'Coordination with residence and family matters'],
+      sections: [
+        ['The project and its supporting documents', 'Preparation takes account of the proposed activity, its structure and supporting evidence. Requirements must be checked with the relevant consulate and against the applicant’s circumstances.'],
+        ['Business structure and relocation', 'We assist with choosing and establishing a suitable legal structure and preparing foreign documents. We coordinate these steps with relevant property, accounting and family matters.'],
+      ],
+    },
+  },
+  {
+    id: 'd7', group: 'people', icon: 'file-lines', people: ['jvq'],
+    files: { pt: 'visto-d7-portugal.html', en: 'd7-visa-portugal.html' },
+    related: ['residence', 'reunification', 'succession'],
+    pt: {
+      title: 'Visto D7 em Portugal',
+      summary: 'Apoio a pensionistas e titulares de rendimentos próprios na preparação da residência em Portugal.',
+      intro: 'Acompanhamos pedidos D7 com base em pensões ou outros rendimentos próprios relevantes para a via de residência. A análise atende à origem, regularidade e documentação dos meios de subsistência e à preparação da mudança.',
+      services: ['Análise dos rendimentos e dos meios de subsistência', 'Organização da prova financeira', 'Preparação documental do pedido', 'NIF, conta bancária e alojamento', 'Documentos estrangeiros e legalizações', 'Articulação com residência e reagrupamento familiar'],
+      sections: [
+        ['Rendimentos e documentos', 'A preparação incide sobre a documentação pessoal, a prova de rendimentos e os elementos de alojamento e de suporte. Os requisitos concretos são verificados para a situação do requerente e para o posto consular competente.'],
+        ['A mudança e a família', 'A residência envolve decisões sobre habitação e organização da vida familiar. Apoiamos a articulação entre o pedido, os documentos obtidos no estrangeiro e as diligências a realizar em Portugal.'],
+      ],
+    },
+    en: {
+      title: 'D7 Visa in Portugal',
+      summary: 'Assistance for pensioners and applicants with independent income preparing to reside in Portugal.',
+      intro: 'We assist with D7 applications based on pensions or other independent income relevant to this residence route. We assess the source, regularity and evidence of financial means alongside the applicant’s relocation plans.',
+      services: ['Assessment of income and financial means', 'Organisation of financial evidence', 'Application document preparation', 'Tax number, banking and accommodation', 'Foreign documents and legalisation', 'Coordination with residence and family reunification'],
+      sections: [
+        ['Income and supporting evidence', 'Preparation covers personal documents, proof of income, accommodation and other supporting material. Requirements are checked against the applicant’s circumstances and those of the relevant consulate.'],
+        ['Relocation and family', 'Residence involves decisions about housing and family life. We help coordinate the application, documents obtained abroad and the steps to be completed in Portugal.'],
+      ],
+    },
+  },
+  {
+    id: 'ari', group: 'people', icon: 'globe', people: ['jvq'],
+    files: { pt: 'visto-gold-portugal.html', en: 'golden-visa-portugal.html' },
+    related: ['residence', 'corporate', 'reunification'],
+    resources: [{ label: {pt: 'Informação oficial da AIMA sobre ARI', en: 'Official AIMA information on investment residence permits'}, url: 'https://aima.gov.pt/pt/viver/autorizacao-de-residencia-para-investimento-art-90-o-a' }],
+    pt: {
+      title: 'Golden Visa e Residência para Investimento',
+      summary: 'Acompanhamento jurídico de autorizações de residência para atividade de investimento (ARI).',
+      intro: 'Apoiamos a análise da elegibilidade do investimento e a organização dos documentos do pedido ARI, habitualmente conhecido como Golden Visa. A intervenção considera a modalidade aplicável, a situação do investidor e as fases posteriores do processo.',
+      services: ['Análise jurídica da elegibilidade do investimento', 'Preparação dos documentos pessoais e do investimento', 'Organização e acompanhamento do pedido', 'Recolha de dados biométricos', 'Renovações e manutenção dos requisitos', 'Articulação com a família e a estrutura societária'],
+      sections: [
+        ['Elegibilidade e preparação', 'A escolha da via exige verificar os requisitos legais atuais e a documentação do investimento. A aquisição de um imóvel não deve ser confundida com um investimento elegível para um novo pedido ARI.'],
+        ['Pedido e continuidade', 'Acompanhamos a preparação documental, as comunicações e as etapas aplicáveis ao pedido ou à renovação. A manutenção dos requisitos deve ser considerada desde o início. O apoio jurídico não substitui aconselhamento financeiro sobre produtos de investimento.'],
+      ],
+    },
+    en: {
+      title: 'Golden Visa and Investment Residence',
+      summary: 'Legal assistance with Portuguese residence permits for investment activity, known as ARI or the Golden Visa.',
+      intro: 'We assess the legal eligibility of an investment and help prepare the documents for an ARI application. Our work considers the applicable route, the investor’s circumstances and the later stages of the process.',
+      services: ['Legal assessment of investment eligibility', 'Preparation of personal and investment documents', 'Application preparation and follow-up', 'Biometric appointments', 'Renewals and continuing requirements', 'Coordination with family and company matters'],
+      sections: [
+        ['Eligibility and preparation', 'The chosen route requires a review of current legal requirements and investment documents. Buying property should not be confused with making an eligible investment for a new ARI application.'],
+        ['Applications and ongoing requirements', 'We assist with documents, communications and the steps relevant to the application or renewal. Continuing requirements should be considered from the outset. Legal advice does not replace financial advice on investment products.'],
+      ],
+    },
+  },
+  {
+    id: 'reunification', group: 'people', icon: 'users', people: ['jvq'],
+    files: { pt: 'reagrupamento-familiar-portugal.html', en: 'family-reunification-portugal.html' },
+    related: ['residence', 'family', 'notarial'],
+    pt: {
+      title: 'Reagrupamento Familiar',
+      summary: 'Apoio à residência de familiares em Portugal e à preparação da documentação do agregado.',
+      intro: 'Acompanhamos a análise das condições de reagrupamento familiar e a preparação do pedido. A intervenção atende ao estatuto de residência do familiar principal, à composição do agregado e à prova dos vínculos familiares.',
+      services: ['Verificação das condições aplicáveis ao agregado', 'Prova do vínculo familiar', 'Documentação de residência e alojamento', 'Certidões estrangeiras, traduções e legalizações', 'Menores e consentimentos parentais', 'Articulação com o processo de residência principal'],
+      sections: [
+        ['Família e condições do pedido', 'A possibilidade de reagrupamento depende do regime aplicável e da situação concreta. Analisamos o vínculo familiar, a situação de residência e os elementos necessários à instrução do pedido.'],
+        ['Documentação e menores', 'Organizamos certidões, documentos de identificação e outros elementos obtidos em Portugal e no estrangeiro. Quando há menores, analisamos também os consentimentos e as responsabilidades parentais relevantes.'],
+      ],
+    },
+    en: {
+      title: 'Family Reunification',
+      summary: 'Assistance with family residence in Portugal and the documents needed to support an application.',
+      intro: 'We assess the conditions for family reunification and assist with preparing the application. Our work considers the principal family member’s residence status, the family’s circumstances and evidence of family relationships.',
+      services: ['Assessment of the applicable family requirements', 'Evidence of family relationships', 'Residence and accommodation documents', 'Foreign certificates, translations and legalisation', 'Children and parental consent', 'Coordination with the principal residence application'],
+      sections: [
+        ['Family circumstances and eligibility', 'Eligibility depends on the applicable rules and individual circumstances. We assess family relationships, residence status and the evidence needed to support the application.'],
+        ['Documents and children', 'We help organise certificates, identification and other documents obtained in Portugal and abroad. Where children are involved, we also review relevant parental consent and responsibility arrangements.'],
+      ],
+    },
+  },
+];
+
+export const featured = ['public', 'corporate', 'employment', 'criminal', 'credit', 'property'];
+
+export const people = [
+  { id: 'jsm', name: 'José da Silva Miguel', initials: 'JSM', email: 'jsmiguel@mga.com.pt', type: 'legal', practices: ['public', 'administrative', 'procurement'] },
+  { id: 'mjg', name: 'Manuel Jorge Goes', initials: 'MJG', email: 'mjgoes@mga.com.pt', type: 'legal', practices: ['administrative', 'property'] },
+  { id: 'mcp', name: 'Miguel Costa Pinto', initials: 'MCP', email: 'mcpinto@mga.com.pt', type: 'legal', practices: ['corporate', 'employment', 'property', 'litigation'] },
+  { id: 'cfs', name: 'Carla Franqueira de Sousa', initials: 'CFS', email: 'cfsousa@mga.com.pt', type: 'legal', female: true, practices: ['criminal', 'family', 'litigation'] },
+  { id: 'mm', name: 'Margarida Mendonça', initials: 'MM', email: 'margarida.mendonca@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
+  { id: 'nsc', name: 'Natacha Sofia Castanheira', initials: 'NSC', email: 'natacha.castanheira@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
+  { id: 'sca', name: 'Sofia Cunha Alves', initials: 'SCA', email: 'sofia.alves@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'succession', 'litigation'] },
+  { id: 'jvq', name: 'José Vitorino Quintas', initials: 'JVQ', email: 'jose.quintas@mga.com.pt', type: 'legal', practices: ['immigration', 'property'] },
+  { id: 'afs', name: 'Ana Filipa dos Santos', initials: 'AFS', email: 'ana.santos@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
+  { id: 'arc', name: 'Ana Rita Alves Costa', initials: 'ARC', type: 'legal', female: true, trainee: true, practices: [] },
+  { id: 'vf', name: 'Vânia Furtado', initials: 'VF', type: 'admin', female: true, practices: [] },
+  { id: 'ep', name: 'Elsa Pombinho', initials: 'EP', type: 'admin', female: true, practices: [] },
+];
+
+export const institutional = [
+  { id: 'home', files: {pt: 'index.html', en: 'index.html'}, pt: {title: 'Advogados em Lisboa | Miguel, Goes & Associados', description: 'Sociedade de advogados em Lisboa desde 1998. Direito Público, contratação pública, recuperação de crédito e Direito Privado para pessoas e empresas.'}, en: {title: 'Legal Advice in Portugal | Miguel, Goes & Associados', description: 'Lisbon law firm founded in 1998. Legal advice in Portugal on public law, procurement, debt recovery, business, property and personal matters.'} },
+  { id: 'about', files: {pt: 'sobre.html', en: 'about.html'}, pt: {title: 'A Sociedade', description: 'Conheça a Miguel, Goes & Associados, sociedade de advogados fundada em 1998, com prática em Direito Público e Direito Privado em Lisboa.'}, en: {title: 'The Firm', description: 'Meet Miguel, Goes & Associados, a Lisbon law firm founded in 1998, advising on public law and private law matters in Portugal.'} },
+  { id: 'team', files: {pt: 'equipa.html', en: 'team.html'}, pt: {title: 'Equipa', description: 'Conheça os profissionais da Miguel, Goes & Associados, as suas áreas de atuação e os contactos diretos da equipa jurídica em Lisboa.'}, en: {title: 'Our Team', description: 'Meet the professionals at Miguel, Goes & Associados in Lisbon. Find their practice areas and direct contact details.'} },
+  { id: 'areas', files: {pt: 'areas.html', en: 'practice-areas.html'}, pt: {title: 'Áreas de Atuação', description: 'Direito Público, contratação pública, comercial, trabalho, penal, recuperação de crédito, imobiliário, família e outras áreas da MGA em Lisboa.'}, en: {title: 'Practice Areas', description: 'Explore MGA’s legal practice in Portugal: public law, procurement, business, employment, criminal law, debt recovery, property and personal matters.'} },
+  { id: 'contact', files: {pt: 'contactos.html', en: 'contacts.html'}, pt: {title: 'Contactos', description: 'Contacte a Miguel, Goes & Associados em Lisboa. Avenida Miguel Bombarda, 147. Telefone +351 213 580 247 ou advogados@mga.com.pt.'}, en: {title: 'Contact', description: 'Contact Miguel, Goes & Associados in Lisbon. Avenida Miguel Bombarda, 147. Call +351 213 580 247 or email advogados@mga.com.pt.'} },
+  { id: 'privacy', files: {pt: 'politica-privacidade.html', en: 'privacy-policy.html'}, pt: {title: 'Política de Privacidade', description: 'Informação sobre os dados tratados no site e nos pedidos de contacto à Miguel, Goes & Associados, os prestadores utilizados e os direitos dos titulares.'}, en: {title: 'Privacy Policy', description: 'Information on data processed through the Miguel, Goes & Associados website and contact form, service providers and your data protection rights.'} },
+  { id: 'legal', files: {pt: 'informacao-legal.html', en: 'legal-information.html'}, pt: {title: 'Informação Legal', description: 'Identificação da Miguel, Goes & Associados e informação sobre a natureza dos conteúdos, os contactos e a utilização do site.'}, en: {title: 'Legal Information', description: 'Information about Miguel, Goes & Associados, the nature of this website’s content, contact details and use of the website.'} },
+];
+
+export const copy = {
+  pt: {
+    home: 'Início', about: 'Sociedade', team: 'Equipa', areas: 'Áreas', contact: 'Contactos',
+    legal: 'Informação Legal', privacy: 'Privacidade', language: 'Idioma', skip: 'Saltar para o conteúdo',
+    contactAction: 'Entrar em contacto', allAreas: 'Todas as áreas de atuação', viewTeam: 'Conhecer a equipa',
+    explore: 'Conhecer a área', related: 'Áreas relacionadas', services: 'Como podemos ajudar',
+    contents: 'Nesta página', associatedTeam: 'Profissionais desta área', topicAction: 'Falar sobre este assunto',
+    legalTeam: 'Equipa jurídica', adminTeam: 'Apoio administrativo', all: 'Todos',
+    search: 'Pesquisar', searchTitle: 'O que procura?', searchPlaceholder: 'Área, pessoa ou assunto',
+    searchEmpty: 'Não foram encontrados resultados.', searchUnavailable: 'Não foi possível carregar a pesquisa. Consulte as áreas ou a equipa.',
+    close: 'Fechar', menu: 'Abrir menu', submenu: 'Mostrar áreas de atuação',
+    results: 'resultados', pages: 'Páginas', practice: 'Área de atuação', person: 'Equipa',
+    filterAreas: 'Pesquisar áreas', filterPeople: 'Pesquisar profissionais', noAreas: 'Nenhuma área encontrada.', noPeople: 'Nenhum profissional encontrado.',
+    lawyer: 'Advogado', lawyerFemale: 'Advogada', trainee: 'Advogada estagiária', admin: 'Apoio administrativo',
+    name: 'Nome', email: 'Email', subject: 'Assunto', message: 'Mensagem', general: 'Pedido de contacto',
+    send: 'Enviar mensagem', sending: 'A enviar…', sent: 'Mensagem enviada. Obrigado pelo seu contacto.',
+    failed: 'Não foi possível enviar a mensagem. Tente novamente ou contacte-nos por telefone ou email.',
+    limited: 'Foram efetuadas várias tentativas. Aguarde um pouco e volte a tentar, ou contacte-nos diretamente.',
+    offline: 'Sem ligação à Internet. O texto da mensagem foi mantido para poder tentar novamente.',
+    formPrivacy: 'Os dados indicados destinam-se à resposta ao seu pedido.', privacyLink: 'Consulte a política de privacidade.',
+    messageHint: 'Indique apenas o contexto geral, sem documentos ou dados sensíveis.',
+    required: 'Campos obrigatórios', map: 'Ver mapa', openMap: 'Abrir no Google Maps', mapTitle: 'Localização da Miguel, Goes & Associados em Lisboa',
+    addressLabel: 'Escritório', phoneLabel: 'Telefone', emailLabel: 'Email', city: 'Lisboa',
+    updated: 'Atualizado em 26 de outubro de 2026',
+    contactHeading: 'Fale connosco.', contactText: 'Um assunto pessoal ou uma decisão da sua empresa. Conte-nos o essencial para podermos encaminhar o seu pedido.',
+    backTop: 'Voltar ao início', official: 'Informação oficial',
+  },
+  en: {
+    home: 'Home', about: 'The Firm', team: 'Team', areas: 'Practice Areas', contact: 'Contact',
+    legal: 'Legal Information', privacy: 'Privacy', language: 'Language', skip: 'Skip to content',
+    contactAction: 'Contact us', allAreas: 'All practice areas', viewTeam: 'Meet the team',
+    explore: 'Explore this practice', related: 'Related practice areas', services: 'How we can help',
+    contents: 'On this page', associatedTeam: 'People in this practice', topicAction: 'Discuss your matter',
+    legalTeam: 'Legal team', adminTeam: 'Administrative support', all: 'All',
+    search: 'Search', searchTitle: 'What are you looking for?', searchPlaceholder: 'Practice area, person or matter',
+    searchEmpty: 'No results found.', searchUnavailable: 'Search could not be loaded. Browse our practice areas or team.',
+    close: 'Close', menu: 'Open menu', submenu: 'Show practice areas',
+    results: 'results', pages: 'Pages', practice: 'Practice area', person: 'Team',
+    filterAreas: 'Search practice areas', filterPeople: 'Search people', noAreas: 'No practice areas found.', noPeople: 'No people found.',
+    lawyer: 'Lawyer', lawyerFemale: 'Lawyer', trainee: 'Trainee lawyer', admin: 'Administrative support',
+    name: 'Name', email: 'Email', subject: 'Subject', message: 'Message', general: 'General enquiry',
+    send: 'Send message', sending: 'Sending…', sent: 'Your message has been sent. Thank you for contacting us.',
+    failed: 'Your message could not be sent. Please try again or contact us by phone or email.',
+    limited: 'Several attempts have been made. Please wait before trying again, or contact us directly.',
+    offline: 'You are offline. Your message has been kept so you can try again.',
+    formPrivacy: 'The information provided will be used to respond to your enquiry.', privacyLink: 'Read our privacy policy.',
+    messageHint: 'Give a brief outline, without documents or sensitive personal information.',
+    required: 'Required fields', map: 'View map', openMap: 'Open in Google Maps', mapTitle: 'Location of Miguel, Goes & Associados in Lisbon',
+    addressLabel: 'Office', phoneLabel: 'Telephone', emailLabel: 'Email', city: 'Lisbon',
+    updated: 'Updated on 26 October 2026',
+    contactHeading: 'Talk to us.', contactText: 'A personal matter or a business decision. Tell us the essentials so we can direct your enquiry to the right people.',
+    backTop: 'Back to top', official: 'Official information',
+  },
+};

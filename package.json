@@ -1,0 +1,11 @@
+{
+  "name": "mga-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "test": "node --test tests/site.test.mjs",
+    "check": "python scripts/check-site.py",
+    "dev": "python scripts/serve.py"
+  }
+}
