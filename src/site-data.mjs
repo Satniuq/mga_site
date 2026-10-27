@@ -100,7 +100,7 @@ export const practices = [
     },
   },
   {
-    id: 'corporate', group: 'business', icon: 'briefcase', people: ['mcp'],
+    id: 'corporate', group: 'business', icon: 'briefcase', people: ['mcp', 'cfs'],
     files: { pt: 'comercial-societario.html', en: 'corporate-commercial.html' },
     related: ['employment', 'credit', 'property'],
     pt: {
@@ -229,7 +229,7 @@ export const practices = [
     },
   },
   {
-    id: 'civil', group: 'people', icon: 'file-signature', people: [],
+    id: 'civil', group: 'people', icon: 'file-signature', people: ['cfs'],
     files: { pt: 'direito-civil.html', en: 'civil-law.html' },
     related: ['property', 'family', 'litigation'],
     pt: {
@@ -514,7 +514,7 @@ export const people = [
   { id: 'jsm', name: 'José da Silva Miguel', initials: 'JSM', email: 'jsmiguel@mga.com.pt', type: 'legal', practices: ['public', 'administrative', 'procurement'] },
   { id: 'mjg', name: 'Manuel Jorge Goes', initials: 'MJG', email: 'mjgoes@mga.com.pt', type: 'legal', practices: ['administrative', 'property'] },
   { id: 'mcp', name: 'Miguel Costa Pinto', initials: 'MCP', email: 'mcpinto@mga.com.pt', type: 'legal', practices: ['corporate', 'employment', 'property', 'litigation'] },
-  { id: 'cfs', name: 'Carla Franqueira de Sousa', initials: 'CFS', email: 'cfsousa@mga.com.pt', type: 'legal', female: true, practices: ['criminal', 'family', 'litigation'] },
+  { id: 'cfs', name: 'Carla Franqueira de Sousa', initials: 'CFS', email: 'cfsousa@mga.com.pt', type: 'legal', female: true, practices: ['criminal', 'corporate', 'civil', 'family', 'litigation'], practiceLabels: { family: { pt: 'Direito da Família (especial incidência)', en: 'Family Law (particular focus)' } } },
   { id: 'mm', name: 'Margarida Mendonça', initials: 'MM', email: 'margarida.mendonca@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
   { id: 'nsc', name: 'Natacha Sofia Castanheira', initials: 'NSC', email: 'natacha.castanheira@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
   { id: 'sca', name: 'Sofia Cunha Alves', initials: 'SCA', email: 'sofia.alves@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'succession', 'litigation'] },

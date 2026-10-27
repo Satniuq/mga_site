@@ -41,6 +41,30 @@ test('both published team pages contain the current team and no sample portrait'
   assert.ok(!pt.includes('jsmiguel.jpg') && !en.includes('jsmiguel.jpg'));
 });
 
+test('Carla has commercial and civil practice with particular focus on family law in both languages', async () => {
+  const carla = people.find(person => person.id === 'cfs');
+  for (const id of ['criminal', 'corporate', 'civil', 'family', 'litigation']) {
+    assert.ok(carla.practices.includes(id));
+  }
+  for (const lang of ['pt', 'en']) {
+    const teamPath = lang === 'pt' ? 'equipa.html' : 'en/team.html';
+    const html = await readFile(new URL(`../${teamPath}`, import.meta.url), 'utf8');
+    const card = html.match(/<article[^>]*id="cfs"[\s\S]*?<\/article>/)?.[0];
+    assert.ok(card);
+    assert.ok(card.includes(carla.practiceLabels.family[lang]));
+    for (const id of ['corporate', 'civil']) {
+      const practice = practices.find(item => item.id === id);
+      assert.ok(practice.people.includes(carla.id));
+      assert.ok(card.includes(`href="${practice.files[lang]}"`));
+      const practicePath = `${lang === 'en' ? 'en/' : ''}${practice.files[lang]}`;
+      const practiceHtml = await readFile(new URL(`../${practicePath}`, import.meta.url), 'utf8');
+      assert.ok(practiceHtml.includes(`href="${teamPath.split('/').pop()}#cfs"`));
+    }
+    const index = JSON.parse(await readFile(new URL(`../js/search-${lang}.json`, import.meta.url), 'utf8'));
+    assert.ok(index.find(item => item.title === carla.name).description.includes(carla.practiceLabels.family[lang]));
+  }
+});
+
 test('existing public URLs are preserved and every page has its own language pair', () => {
   assert.equal(pages.length, 26);
   for (const lang of ['pt', 'en']) {

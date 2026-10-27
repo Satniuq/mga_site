@@ -15,6 +15,7 @@ const href = (id, lang) => byId.get(id).files[lang];
 const pagePath = (page, lang) => `${lang === 'en' ? 'en/' : ''}${page.files[lang]}`;
 const absolute = (page, lang) => `${firm.url}/${page.id === 'home' ? (lang === 'en' ? 'en/' : '') : pagePath(page, lang)}`;
 const role = (person, lang) => person.type === 'admin' ? copy[lang].admin : person.trainee ? copy[lang].trainee : person.female ? copy[lang].lawyerFemale : copy[lang].lawyer;
+const personPracticeLabel = (person, id, lang) => person.practiceLabels?.[id]?.[lang] ?? byId.get(id)[lang].title;
 const paragraph = text => `<p>${escape(text)}</p>`;
 
 const assetHash = createHash('sha256');
@@ -141,7 +142,7 @@ function areasPage(page, lang) {
 
 function teamPage(page, lang) {
   const t = copy[lang];
-  return `<main id="main">${pageHeading(page, lang, lang === 'pt' ? 'Conheça os profissionais, as suas áreas de atuação e os contactos diretos.' : 'Meet our professionals, explore their practice areas and find their direct contact details.')}<div class="container directory team-directory" data-filter-directory>${filters('people', lang)}${['legal','admin'].map(type => `<section class="directory-group" data-filter-group><div class="directory-group-heading"><h2>${type === 'legal' ? t.legalTeam : t.adminTeam}</h2></div><div class="people-grid">${people.filter(p => p.type === type).map(p => `<article class="person-card" id="${p.id}" data-filter-item data-group="${p.type}" data-search-text="${escape(`${p.name} ${role(p, lang)} ${p.practices.map(id => byId.get(id)[lang].title).join(' ')}`)}"><span class="person-monogram">${p.initials}</span><h3>${escape(p.name)}</h3><p class="person-role">${role(p, lang)}</p>${p.practices.length ? `<ul class="person-practices">${p.practices.map(id => `<li>${link(id, lang)}</li>`).join('')}</ul>` : ''}${p.email ? `<a class="person-email" href="mailto:${p.email}">${icon('envelope')}<span>${p.email}</span></a>` : ''}</article>`).join('')}</div></section>`).join('')}<p class="empty-state" data-filter-empty hidden>${t.noPeople}</p></div>${contactBand(lang)}</main>`;
+  return `<main id="main">${pageHeading(page, lang, lang === 'pt' ? 'Conheça os profissionais, as suas áreas de atuação e os contactos diretos.' : 'Meet our professionals, explore their practice areas and find their direct contact details.')}<div class="container directory team-directory" data-filter-directory>${filters('people', lang)}${['legal','admin'].map(type => `<section class="directory-group" data-filter-group><div class="directory-group-heading"><h2>${type === 'legal' ? t.legalTeam : t.adminTeam}</h2></div><div class="people-grid">${people.filter(p => p.type === type).map(p => `<article class="person-card" id="${p.id}" data-filter-item data-group="${p.type}" data-search-text="${escape(`${p.name} ${role(p, lang)} ${p.practices.map(id => personPracticeLabel(p, id, lang)).join(' ')}`)}"><span class="person-monogram">${p.initials}</span><h3>${escape(p.name)}</h3><p class="person-role">${role(p, lang)}</p>${p.practices.length ? `<ul class="person-practices">${p.practices.map(id => `<li>${link(id, lang, personPracticeLabel(p, id, lang))}</li>`).join('')}</ul>` : ''}${p.email ? `<a class="person-email" href="mailto:${p.email}">${icon('envelope')}<span>${p.email}</span></a>` : ''}</article>`).join('')}</div></section>`).join('')}<p class="empty-state" data-filter-empty hidden>${t.noPeople}</p></div>${contactBand(lang)}</main>`;
 }
 
 function aboutPage(page, lang) {
@@ -275,7 +276,7 @@ await mkdir(path.join(root, 'en'), { recursive: true });
 for (const lang of ['pt', 'en']) {
   for (const page of allPages) await writeFile(path.join(root, pagePath(page, lang)), render(page, lang), 'utf8');
   const index = allPages.map(page => ({title: page[lang].title, description: page[lang].description ?? page[lang].summary, kind: practices.includes(page) ? copy[lang].practice : copy[lang].pages, path: pagePath(page, lang), keywords: page[lang].services?.join(' ') ?? '', priority: featured.includes(page.id) || ['home','team','contact','areas'].includes(page.id) ? 1 : 0}));
-  index.push(...people.map(person => ({title: person.name, description: person.practices.map(id => byId.get(id)[lang].title).join(' · ') || role(person, lang), kind: copy[lang].person, path: `${pagePath(byId.get('team'), lang)}#${person.id}`, keywords: person.email ?? '', priority: 0})));
+  index.push(...people.map(person => ({title: person.name, description: person.practices.map(id => personPracticeLabel(person, id, lang)).join(' · ') || role(person, lang), kind: copy[lang].person, path: `${pagePath(byId.get('team'), lang)}#${person.id}`, keywords: person.email ?? '', priority: 0})));
   await writeFile(path.join(root, `js/search-${lang}.json`), `${JSON.stringify(index)}\n`, 'utf8');
 }
 
