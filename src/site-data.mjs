@@ -175,7 +175,7 @@ export const practices = [
     },
   },
   {
-    id: 'credit', group: 'business', icon: 'folder-open', people: ['mm', 'nsc', 'sca', 'afs'],
+    id: 'credit', group: 'business', icon: 'folder-open', people: ['mm', 'nsc', 'sca'],
     files: { pt: 'recuperacao-credito-gestao-processos.html', en: 'credit-recovery-process-management.html' },
     related: ['litigation', 'corporate', 'civil'],
     pt: {
@@ -519,7 +519,6 @@ export const people = [
   { id: 'nsc', name: 'Natacha Sofia Castanheira', initials: 'NSC', email: 'natacha.castanheira@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
   { id: 'sca', name: 'Sofia Cunha Alves', initials: 'SCA', email: 'sofia.alves@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'succession', 'litigation'] },
   { id: 'jvq', name: 'José Vitorino Quintas', initials: 'JVQ', email: 'jose.quintas@mga.com.pt', type: 'legal', practices: ['immigration', 'property'] },
-  { id: 'afs', name: 'Ana Filipa dos Santos', initials: 'AFS', email: 'ana.santos@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
   { id: 'arc', name: 'Ana Rita Alves Costa', initials: 'ARC', type: 'legal', female: true, trainee: true, practices: [] },
   { id: 'vf', name: 'Vânia Furtado', initials: 'VF', type: 'admin', female: true, practices: [] },
   { id: 'ep', name: 'Elsa Pombinho', initials: 'EP', type: 'admin', female: true, practices: [] },

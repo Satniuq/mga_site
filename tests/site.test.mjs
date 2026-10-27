@@ -28,13 +28,16 @@ test('the six featured practices follow the meeting brief', () => {
   assert.ok(people.find(person => person.id === 'cfs').practices.includes('criminal'));
 });
 
-test('both published team pages contain the same 12 people and no sample portrait', async () => {
+test('both published team pages contain the current team and no sample portrait', async () => {
   const [pt, en] = await Promise.all(['equipa.html','en/team.html'].map(file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')));
   for (const person of people) {
     assert.ok(pt.includes(`id="${person.id}"`));
     assert.ok(en.includes(`id="${person.id}"`));
   }
-  assert.equal(people.length, 12);
+  assert.equal(people.length, 11);
+  for (const html of [pt, en]) {
+    assert.equal((html.match(/class="person-card"/g) || []).length, people.length);
+  }
   assert.ok(!pt.includes('jsmiguel.jpg') && !en.includes('jsmiguel.jpg'));
 });
 
