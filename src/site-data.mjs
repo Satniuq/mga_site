@@ -3,8 +3,8 @@ export const firm = {
   legalName: 'Miguel, Goes & Associados - Sociedade de Advogados, SP, RL',
   url: 'https://www.mga.com.pt',
   email: 'advogados@mga.com.pt',
-  phone: '+351 213 580 247',
-  phoneHref: '+351213580247',
+  phone: '+351 21 319 3720',
+  phoneHref: '+351213193720',
   street: 'Avenida Miguel Bombarda, 147 - 1.º Dto.',
   postcode: '1050-164',
   founded: '1998',
@@ -519,7 +519,7 @@ export const people = [
   { id: 'nsc', name: 'Natacha Sofia Castanheira', initials: 'NSC', email: 'natacha.castanheira@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
   { id: 'sca', name: 'Sofia Cunha Alves', initials: 'SCA', email: 'sofia.alves@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'succession', 'litigation'] },
   { id: 'jvq', name: 'José Vitorino Quintas', initials: 'JVQ', email: 'jose.quintas@mga.com.pt', type: 'legal', practices: ['immigration', 'property'] },
-  { id: 'arc', name: 'Ana Rita Alves Costa', initials: 'ARC', type: 'legal', female: true, trainee: true, practices: [] },
+  { id: 'arc', name: 'Ana Rita Alves Costa', initials: 'ARC', email: 'rita.costa@mga.com.pt', type: 'legal', female: true, trainee: true, practices: [] },
   { id: 'vf', name: 'Vânia Furtado', initials: 'VF', type: 'admin', female: true, practices: [] },
   { id: 'ep', name: 'Elsa Pombinho', initials: 'EP', type: 'admin', female: true, practices: [] },
 ];
@@ -529,7 +529,7 @@ export const institutional = [
   { id: 'about', files: {pt: 'sobre.html', en: 'about.html'}, pt: {title: 'A Sociedade', description: 'Conheça a Miguel, Goes & Associados, sociedade de advogados fundada em 1998, com prática em Direito Público e Direito Privado em Lisboa.'}, en: {title: 'The Firm', description: 'Meet Miguel, Goes & Associados, a Lisbon law firm founded in 1998, advising on public law and private law matters in Portugal.'} },
   { id: 'team', files: {pt: 'equipa.html', en: 'team.html'}, pt: {title: 'Equipa', description: 'Conheça os profissionais da Miguel, Goes & Associados, as suas áreas de atuação e os contactos diretos da equipa jurídica em Lisboa.'}, en: {title: 'Our Team', description: 'Meet the professionals at Miguel, Goes & Associados in Lisbon. Find their practice areas and direct contact details.'} },
   { id: 'areas', files: {pt: 'areas.html', en: 'practice-areas.html'}, pt: {title: 'Áreas de Atuação', description: 'Direito Público, contratação pública, comercial, trabalho, penal, recuperação de crédito, imobiliário, família e outras áreas da MGA em Lisboa.'}, en: {title: 'Practice Areas', description: 'Explore MGA’s legal practice in Portugal: public law, procurement, business, employment, criminal law, debt recovery, property and personal matters.'} },
-  { id: 'contact', files: {pt: 'contactos.html', en: 'contacts.html'}, pt: {title: 'Contactos', description: 'Contacte a Miguel, Goes & Associados em Lisboa. Avenida Miguel Bombarda, 147. Telefone +351 213 580 247 ou advogados@mga.com.pt.'}, en: {title: 'Contact', description: 'Contact Miguel, Goes & Associados in Lisbon. Avenida Miguel Bombarda, 147. Call +351 213 580 247 or email advogados@mga.com.pt.'} },
+  { id: 'contact', files: {pt: 'contactos.html', en: 'contacts.html'}, pt: {title: 'Contactos', description: 'Contacte a Miguel, Goes & Associados em Lisboa. Avenida Miguel Bombarda, 147. Telefone +351 21 319 3720 ou advogados@mga.com.pt.'}, en: {title: 'Contact', description: 'Contact Miguel, Goes & Associados in Lisbon. Avenida Miguel Bombarda, 147. Call +351 21 319 3720 or email advogados@mga.com.pt.'} },
   { id: 'privacy', files: {pt: 'politica-privacidade.html', en: 'privacy-policy.html'}, pt: {title: 'Política de Privacidade', description: 'Informação sobre os dados tratados no site e nos pedidos de contacto à Miguel, Goes & Associados, os prestadores utilizados e os direitos dos titulares.'}, en: {title: 'Privacy Policy', description: 'Information on data processed through the Miguel, Goes & Associados website and contact form, service providers and your data protection rights.'} },
   { id: 'legal', files: {pt: 'informacao-legal.html', en: 'legal-information.html'}, pt: {title: 'Informação Legal', description: 'Identificação da Miguel, Goes & Associados e informação sobre a natureza dos conteúdos, os contactos e a utilização do site.'}, en: {title: 'Legal Information', description: 'Information about Miguel, Goes & Associados, the nature of this website’s content, contact details and use of the website.'} },
 ];

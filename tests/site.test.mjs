@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { practices, featured, people, institutional } from '../src/site-data.mjs';
+import { firm, practices, featured, people, institutional } from '../src/site-data.mjs';
 
 const pages = [...institutional, ...practices];
 
@@ -62,6 +62,24 @@ test('Carla has commercial and civil practice with particular focus on family la
     }
     const index = JSON.parse(await readFile(new URL(`../js/search-${lang}.json`, import.meta.url), 'utf8'));
     assert.ok(index.find(item => item.title === carla.name).description.includes(carla.practiceLabels.family[lang]));
+  }
+});
+
+test('published contact details use the telephone rather than the fax and include the trainee email', async () => {
+  assert.equal(firm.phoneHref, '+351213193720');
+  assert.equal(people.find(person => person.id === 'arc').email, 'rita.costa@mga.com.pt');
+  for (const lang of ['pt', 'en']) {
+    for (const page of pages) {
+      const file = `${lang === 'en' ? 'en/' : ''}${page.files[lang]}`;
+      const html = await readFile(new URL(`../${file}`, import.meta.url), 'utf8');
+      assert.ok(html.includes(`href="tel:${firm.phoneHref}"`), file);
+      assert.ok(html.includes(`"telephone":"${firm.phoneHref}"`), file);
+      assert.ok(!html.includes('213580247') && !html.includes('213 580 247'), file);
+      if (page.id === 'team') assert.ok(html.includes('href="mailto:rita.costa@mga.com.pt"'));
+      if (page.id === 'contact') assert.ok(page[lang].description.includes(firm.phone));
+    }
+    const index = JSON.parse(await readFile(new URL(`../js/search-${lang}.json`, import.meta.url), 'utf8'));
+    assert.equal(index.find(item => item.path.endsWith('#arc')).keywords, 'rita.costa@mga.com.pt');
   }
 });
 
