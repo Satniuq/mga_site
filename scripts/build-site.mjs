@@ -14,7 +14,7 @@ const prefix = lang => lang === 'en' ? '../' : '';
 const href = (id, lang) => byId.get(id).files[lang];
 const pagePath = (page, lang) => `${lang === 'en' ? 'en/' : ''}${page.files[lang]}`;
 const absolute = (page, lang) => `${firm.url}/${page.id === 'home' ? (lang === 'en' ? 'en/' : '') : pagePath(page, lang)}`;
-const role = (person, lang) => person.type === 'admin' ? copy[lang].admin : person.trainee ? copy[lang].trainee : person.female ? copy[lang].lawyerFemale : copy[lang].lawyer;
+const role = (person, lang) => person.roles?.[lang] ?? (person.type === 'admin' ? copy[lang].admin : person.trainee ? copy[lang].trainee : person.female ? copy[lang].lawyerFemale : copy[lang].lawyer);
 const personPracticeLabel = (person, id, lang) => person.practiceLabels?.[id]?.[lang] ?? byId.get(id)[lang].title;
 const paragraph = text => `<p>${escape(text)}</p>`;
 

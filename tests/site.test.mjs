@@ -109,6 +109,23 @@ test('published contact details use the telephone rather than the fax and includ
   }
 });
 
+test('Vania has the requested role in the team, structured data and search in each language', async () => {
+  const vania = people.find(person => person.id === 'vf');
+  for (const [lang, title] of Object.entries({ pt: 'Secretária forense', en: 'Paralegal' })) {
+    assert.equal(vania.roles[lang], title);
+    const teamPath = lang === 'pt' ? 'equipa.html' : 'en/team.html';
+    const html = await readFile(new URL(`../${teamPath}`, import.meta.url), 'utf8');
+    const card = html.match(/<article[^>]*id="vf"[\s\S]*?<\/article>/)?.[0];
+    assert.ok(card?.includes(`<p class="person-role">${title}</p>`));
+    const graph = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
+    assert.equal(graph.find(item => item['@type'] === 'Person' && item.name === vania.name).jobTitle, title);
+    const index = JSON.parse(await readFile(new URL(`../js/search-${lang}.json`, import.meta.url), 'utf8'));
+    assert.equal(index.find(item => item.path.endsWith('#vf')).description, title);
+    const elsa = html.match(/<article[^>]*id="ep"[\s\S]*?<\/article>/)?.[0];
+    assert.ok(elsa?.includes(lang === 'pt' ? 'Apoio administrativo' : 'Administrative support'));
+  }
+});
+
 test('existing public URLs are preserved and every page has its own language pair', () => {
   assert.equal(pages.length, 26);
   for (const lang of ['pt', 'en']) {

@@ -520,7 +520,7 @@ export const people = [
   { id: 'sca', name: 'Sofia Cunha Alves', initials: 'SCA', email: 'sofia.alves@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'family', 'property', 'succession', 'litigation'] },
   { id: 'jvq', name: 'José Vitorino Quintas', initials: 'JVQ', email: 'jose.quintas@mga.com.pt', type: 'legal', practices: ['immigration', 'property'] },
   { id: 'arc', name: 'Ana Rita Alves Costa', initials: 'ARC', email: 'rita.costa@mga.com.pt', type: 'legal', female: true, trainee: true, practices: [] },
-  { id: 'vf', name: 'Vânia Furtado', initials: 'VF', type: 'admin', female: true, practices: [] },
+  { id: 'vf', name: 'Vânia Furtado', initials: 'VF', type: 'admin', female: true, roles: { pt: 'Secretária forense', en: 'Paralegal' }, practices: [] },
   { id: 'ep', name: 'Elsa Pombinho', initials: 'EP', type: 'admin', female: true, practices: [] },
 ];
 
