@@ -202,7 +202,7 @@ export const practices = [
     },
   },
   {
-    id: 'property', group: 'public', icon: 'building', people: ['mjg', 'mcp', 'jvq'],
+    id: 'property', group: 'public', icon: 'building', people: ['mjg', 'mcp', 'jvq', 'sca'],
     files: { pt: 'imobiliario-investimento.html', en: 'real-estate-investment.html' },
     related: ['administrative', 'corporate', 'civil'],
     pt: {
@@ -254,7 +254,7 @@ export const practices = [
     },
   },
   {
-    id: 'family', group: 'people', icon: 'users', people: ['cfs'],
+    id: 'family', group: 'people', icon: 'users', people: ['cfs', 'sca'],
     files: { pt: 'familia.html', en: 'family-law.html' },
     related: ['succession', 'civil', 'notarial'],
     pt: {
@@ -514,10 +514,10 @@ export const people = [
   { id: 'jsm', name: 'José da Silva Miguel', initials: 'JSM', email: 'jsmiguel@mga.com.pt', type: 'legal', practices: ['public', 'administrative', 'procurement'] },
   { id: 'mjg', name: 'Manuel Jorge Goes', initials: 'MJG', email: 'mjgoes@mga.com.pt', type: 'legal', practices: ['administrative', 'property'] },
   { id: 'mcp', name: 'Miguel Costa Pinto', initials: 'MCP', email: 'mcpinto@mga.com.pt', type: 'legal', practices: ['corporate', 'employment', 'property', 'litigation'] },
-  { id: 'cfs', name: 'Carla Franqueira de Sousa', initials: 'CFS', email: 'cfsousa@mga.com.pt', type: 'legal', female: true, practices: ['criminal', 'corporate', 'civil', 'family', 'litigation'], practiceLabels: { family: { pt: 'Direito da Família (especial incidência)', en: 'Family Law (particular focus)' } } },
+  { id: 'cfs', name: 'Carla Franqueira de Sousa', initials: 'CFS', email: 'cfsousa@mga.com.pt', type: 'legal', female: true, practices: ['criminal', 'corporate', 'civil', 'family', 'litigation'] },
   { id: 'mm', name: 'Margarida Mendonça', initials: 'MM', email: 'margarida.mendonca@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
   { id: 'nsc', name: 'Natacha Sofia Castanheira', initials: 'NSC', email: 'natacha.castanheira@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
-  { id: 'sca', name: 'Sofia Cunha Alves', initials: 'SCA', email: 'sofia.alves@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'succession', 'litigation'] },
+  { id: 'sca', name: 'Sofia Cunha Alves', initials: 'SCA', email: 'sofia.alves@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'family', 'property', 'succession', 'litigation'] },
   { id: 'jvq', name: 'José Vitorino Quintas', initials: 'JVQ', email: 'jose.quintas@mga.com.pt', type: 'legal', practices: ['immigration', 'property'] },
   { id: 'arc', name: 'Ana Rita Alves Costa', initials: 'ARC', email: 'rita.costa@mga.com.pt', type: 'legal', female: true, trainee: true, practices: [] },
   { id: 'vf', name: 'Vânia Furtado', initials: 'VF', type: 'admin', female: true, practices: [] },
