@@ -32,7 +32,7 @@ export const practices = [
       sections: [
         ['Antes da decisão administrativa', 'A identificação do procedimento, dos documentos necessários e dos prazos permite preparar a posição do cliente desde o início. Acompanhamos a tramitação junto de entidades da administração central e local, concessionários e entidades administrativas independentes.'],
         ['Defesa de direitos e interesses', 'Analisamos atos administrativos, os seus efeitos e os meios de reação disponíveis. Quando necessário, acompanhamos a impugnação junto da Administração ou dos tribunais administrativos.'],
-        ['Contratos, território e atividade económica', 'Articulamos o Direito Administrativo com a contratação pública e o urbanismo quando a decisão pública condiciona um contrato, um imóvel ou a atividade do cliente.'],
+        ['Contratos, território e atividade económica', 'Articulamos o direito administrativo com a contratação pública e o urbanismo quando a decisão pública condiciona um contrato, um imóvel ou a atividade do cliente.'],
       ],
     },
     en: {
@@ -73,7 +73,7 @@ export const practices = [
     },
   },
   {
-    id: 'procurement', group: 'public', icon: 'file-contract', people: ['jsm'],
+    id: 'procurement', group: 'public', icon: 'file-contract', people: ['jsm', 'mcp'],
     files: { pt: 'contratacao-publica.html', en: 'public-procurement.html' },
     related: ['public', 'administrative', 'litigation'],
     pt: {
@@ -125,7 +125,7 @@ export const practices = [
     },
   },
   {
-    id: 'employment', group: 'business', icon: 'user-tie', people: ['mcp'],
+    id: 'employment', group: 'business', icon: 'user-tie', people: ['mcp', 'sca'],
     files: { pt: 'direito-trabalho.html', en: 'employment-labour-law.html' },
     related: ['corporate', 'litigation', 'criminal'],
     pt: {
@@ -150,7 +150,7 @@ export const practices = [
     },
   },
   {
-    id: 'criminal', group: 'people', icon: 'scale-balanced', people: ['cfs'],
+    id: 'criminal', group: 'people', icon: 'scale-balanced', people: ['cfs', 'jvq'],
     files: { pt: 'direito-penal.html', en: 'criminal-law.html' },
     related: ['litigation', 'employment', 'corporate'],
     pt: {
@@ -229,7 +229,7 @@ export const practices = [
     },
   },
   {
-    id: 'civil', group: 'people', icon: 'file-signature', people: ['cfs'],
+    id: 'civil', group: 'people', icon: 'file-signature', people: ['cfs', 'mcp', 'jvq'],
     files: { pt: 'direito-civil.html', en: 'civil-law.html' },
     related: ['property', 'family', 'litigation'],
     pt: {
@@ -281,7 +281,7 @@ export const practices = [
     },
   },
   {
-    id: 'succession', group: 'people', icon: 'file-lines', people: ['sca'],
+    id: 'succession', group: 'people', icon: 'file-lines', people: ['sca', 'mcp'],
     files: { pt: 'sucessoes-herancas.html', en: 'family-succession-estate-planning.html' },
     related: ['family', 'property', 'notarial'],
     pt: {
@@ -306,7 +306,7 @@ export const practices = [
     },
   },
   {
-    id: 'litigation', group: 'people', icon: 'scale-balanced', people: ['mcp', 'cfs', 'mm', 'nsc'],
+    id: 'litigation', group: 'people', icon: 'scale-balanced', people: ['mcp', 'cfs', 'mm', 'nsc', 'sca'],
     files: { pt: 'contencioso-arbitragem.html', en: 'litigation-arbitration.html' },
     related: ['civil', 'corporate', 'credit'],
     pt: {
@@ -331,7 +331,7 @@ export const practices = [
     },
   },
   {
-    id: 'notarial', group: 'business', icon: 'stamp', people: [],
+    id: 'notarial', group: 'business', icon: 'stamp', people: ['jvq', 'sca'],
     files: { pt: 'solicitadoria-atos-notariais.html', en: 'notarial-services-formal-acts.html' },
     related: ['property', 'family', 'succession'],
     pt: {
@@ -356,7 +356,7 @@ export const practices = [
     },
   },
   {
-    id: 'immigration', group: 'people', icon: 'globe', people: ['jvq'],
+    id: 'immigration', group: 'people', icon: 'globe', people: ['jvq', 'mcp'],
     files: { pt: 'direito-dos-estrangeiros.html', en: 'immigration-law.html' },
     related: ['residence', 'reunification', 'property'],
     pt: {
@@ -381,7 +381,7 @@ export const practices = [
     },
   },
   {
-    id: 'residence', group: 'people', icon: 'globe', people: ['jvq'],
+    id: 'residence', parentPractice: 'immigration', group: 'people', icon: 'globe', people: ['jvq', 'mcp'],
     files: { pt: 'residencia-em-portugal.html', en: 'residence-in-portugal.html' },
     related: ['d2', 'd7', 'ari', 'reunification'],
     pt: {
@@ -406,7 +406,7 @@ export const practices = [
     },
   },
   {
-    id: 'd2', group: 'people', icon: 'briefcase', people: ['jvq'],
+    id: 'd2', parentPractice: 'immigration', group: 'people', icon: 'briefcase', people: ['jvq', 'mcp'],
     files: { pt: 'visto-d2-portugal.html', en: 'd2-visa-portugal.html' },
     related: ['residence', 'corporate', 'reunification'],
     pt: {
@@ -431,7 +431,7 @@ export const practices = [
     },
   },
   {
-    id: 'd7', group: 'people', icon: 'file-lines', people: ['jvq'],
+    id: 'd7', parentPractice: 'immigration', group: 'people', icon: 'file-lines', people: ['jvq', 'mcp'],
     files: { pt: 'visto-d7-portugal.html', en: 'd7-visa-portugal.html' },
     related: ['residence', 'reunification', 'succession'],
     pt: {
@@ -456,7 +456,7 @@ export const practices = [
     },
   },
   {
-    id: 'ari', group: 'people', icon: 'globe', people: ['jvq'],
+    id: 'ari', parentPractice: 'immigration', group: 'people', icon: 'globe', people: ['jvq', 'mcp'],
     files: { pt: 'visto-gold-portugal.html', en: 'golden-visa-portugal.html' },
     related: ['residence', 'corporate', 'reunification'],
     resources: [{ label: {pt: 'Informação oficial da AIMA sobre ARI', en: 'Official AIMA information on investment residence permits'}, url: 'https://aima.gov.pt/pt/viver/autorizacao-de-residencia-para-investimento-art-90-o-a' }],
@@ -482,7 +482,7 @@ export const practices = [
     },
   },
   {
-    id: 'reunification', group: 'people', icon: 'users', people: ['jvq'],
+    id: 'reunification', parentPractice: 'immigration', group: 'people', icon: 'users', people: ['jvq', 'mcp'],
     files: { pt: 'reagrupamento-familiar-portugal.html', en: 'family-reunification-portugal.html' },
     related: ['residence', 'family', 'notarial'],
     pt: {
@@ -512,23 +512,23 @@ export const featured = ['public', 'corporate', 'employment', 'criminal', 'credi
 
 export const people = [
   { id: 'jsm', name: 'José da Silva Miguel', initials: 'JSM', email: 'jsmiguel@mga.com.pt', type: 'legal', practices: ['public', 'administrative', 'procurement'] },
-  { id: 'mjg', name: 'Manuel Jorge Goes', initials: 'MJG', email: 'mjgoes@mga.com.pt', type: 'legal', practices: ['administrative', 'property'] },
-  { id: 'mcp', name: 'Miguel Costa Pinto', initials: 'MCP', email: 'mcpinto@mga.com.pt', type: 'legal', practices: ['corporate', 'employment', 'property', 'litigation'] },
+  { id: 'mjg', name: 'Manuel Jorge Goes', initials: 'MJG', email: 'mjgoes@mga.com.pt', type: 'legal', practices: ['public', 'administrative', 'property'] },
+  { id: 'mcp', name: 'Miguel Costa Pinto', initials: 'MCP', email: 'mcpinto@mga.com.pt', type: 'legal', practices: ['corporate', 'employment', 'procurement', 'civil', 'succession', 'immigration', 'property', 'litigation'] },
   { id: 'cfs', name: 'Carla Franqueira de Sousa', initials: 'CFS', email: 'cfsousa@mga.com.pt', type: 'legal', female: true, practices: ['criminal', 'corporate', 'civil', 'family', 'litigation'] },
   { id: 'mm', name: 'Margarida Mendonça', initials: 'MM', email: 'margarida.mendonca@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
   { id: 'nsc', name: 'Natacha Sofia Castanheira', initials: 'NSC', email: 'natacha.castanheira@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'litigation'] },
-  { id: 'sca', name: 'Sofia Cunha Alves', initials: 'SCA', email: 'sofia.alves@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'family', 'property', 'succession', 'litigation'] },
-  { id: 'jvq', name: 'José Vitorino Quintas', initials: 'JVQ', email: 'jose.quintas@mga.com.pt', type: 'legal', practices: ['immigration', 'property'] },
+  { id: 'sca', name: 'Sofia Cunha Alves', initials: 'SCA', email: 'sofia.alves@mga.com.pt', type: 'legal', female: true, practices: ['credit', 'family', 'employment', 'property', 'succession', 'notarial', 'litigation'] },
+  { id: 'jvq', name: 'José Vitorino Quintas', initials: 'JVQ', email: 'jose.quintas@mga.com.pt', type: 'legal', practices: ['immigration', 'criminal', 'civil', 'property', 'notarial'] },
   { id: 'arc', name: 'Ana Rita Alves Costa', initials: 'ARC', email: 'rita.costa@mga.com.pt', type: 'legal', female: true, trainee: true, practices: [] },
   { id: 'vf', name: 'Vânia Furtado', initials: 'VF', type: 'admin', female: true, roles: { pt: 'Secretária forense', en: 'Paralegal' }, practices: [] },
   { id: 'ep', name: 'Elsa Pombinho', initials: 'EP', type: 'admin', female: true, practices: [] },
 ];
 
 export const institutional = [
-  { id: 'home', files: {pt: 'index.html', en: 'index.html'}, pt: {title: 'Advogados em Lisboa | Miguel, Goes & Associados', description: 'Sociedade de advogados em Lisboa desde 1998. Direito Público, contratação pública, recuperação de crédito e Direito Privado para pessoas e empresas.'}, en: {title: 'Legal Advice in Portugal | Miguel, Goes & Associados', description: 'Lisbon law firm founded in 1998. Legal advice in Portugal on public law, procurement, debt recovery, business, property and personal matters.'} },
-  { id: 'about', files: {pt: 'sobre.html', en: 'about.html'}, pt: {title: 'A Sociedade', description: 'Conheça a Miguel, Goes & Associados, sociedade de advogados fundada em 1998, com prática em Direito Público e Direito Privado em Lisboa.'}, en: {title: 'The Firm', description: 'Meet Miguel, Goes & Associados, a Lisbon law firm founded in 1998, advising on public law and private law matters in Portugal.'} },
+  { id: 'home', files: {pt: 'index.html', en: 'index.html'}, pt: {title: 'Advogados em Lisboa | Miguel, Goes & Associados', description: 'Sociedade de advogados em Lisboa desde 1998. Direito público, contratação pública, recuperação de crédito e direito privado para pessoas e empresas.'}, en: {title: 'Legal Advice in Portugal | Miguel, Goes & Associados', description: 'Lisbon law firm founded in 1998. Legal advice in Portugal on public law, procurement, debt recovery, business, property and personal matters.'} },
+  { id: 'about', files: {pt: 'sobre.html', en: 'about.html'}, pt: {title: 'A Sociedade', description: 'Conheça a Miguel, Goes & Associados, sociedade de advogados fundada em 1998, com prática em direito público e direito privado em Lisboa.'}, en: {title: 'The Firm', description: 'Meet Miguel, Goes & Associados, a Lisbon law firm founded in 1998, advising on public law and private law matters in Portugal.'} },
   { id: 'team', files: {pt: 'equipa.html', en: 'team.html'}, pt: {title: 'Equipa', description: 'Conheça os profissionais da Miguel, Goes & Associados, as suas áreas de atuação e os contactos diretos da equipa jurídica em Lisboa.'}, en: {title: 'Our Team', description: 'Meet the professionals at Miguel, Goes & Associados in Lisbon. Find their practice areas and direct contact details.'} },
-  { id: 'areas', files: {pt: 'areas.html', en: 'practice-areas.html'}, pt: {title: 'Áreas de Atuação', description: 'Direito Público, contratação pública, comercial, trabalho, penal, recuperação de crédito, imobiliário, família e outras áreas da MGA em Lisboa.'}, en: {title: 'Practice Areas', description: 'Explore MGA’s legal practice in Portugal: public law, procurement, business, employment, criminal law, debt recovery, property and personal matters.'} },
+  { id: 'areas', files: {pt: 'areas.html', en: 'practice-areas.html'}, pt: {title: 'Áreas de Atuação', description: 'Direito público, contratação pública, comercial, trabalho, penal, recuperação de crédito, imobiliário, família e outras áreas da MGA em Lisboa.'}, en: {title: 'Practice Areas', description: 'Explore MGA’s legal practice in Portugal: public law, procurement, business, employment, criminal law, debt recovery, property and personal matters.'} },
   { id: 'contact', files: {pt: 'contactos.html', en: 'contacts.html'}, pt: {title: 'Contactos', description: 'Contacte a Miguel, Goes & Associados em Lisboa. Avenida Miguel Bombarda, 147. Telefone +351 21 319 3720 ou advogados@mga.com.pt.'}, en: {title: 'Contact', description: 'Contact Miguel, Goes & Associados in Lisbon. Avenida Miguel Bombarda, 147. Call +351 21 319 3720 or email advogados@mga.com.pt.'} },
   { id: 'privacy', files: {pt: 'politica-privacidade.html', en: 'privacy-policy.html'}, pt: {title: 'Política de Privacidade', description: 'Informação sobre os dados tratados no site e nos pedidos de contacto à Miguel, Goes & Associados, os prestadores utilizados e os direitos dos titulares.'}, en: {title: 'Privacy Policy', description: 'Information on data processed through the Miguel, Goes & Associados website and contact form, service providers and your data protection rights.'} },
   { id: 'legal', files: {pt: 'informacao-legal.html', en: 'legal-information.html'}, pt: {title: 'Informação Legal', description: 'Identificação da Miguel, Goes & Associados e informação sobre a natureza dos conteúdos, os contactos e a utilização do site.'}, en: {title: 'Legal Information', description: 'Information about Miguel, Goes & Associados, the nature of this website’s content, contact details and use of the website.'} },

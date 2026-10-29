@@ -20,6 +20,12 @@ npm run dev
 
 A pré-visualização fica em `http://127.0.0.1:8018`. O servidor é local e desativa a cache para mostrar as alterações imediatamente. Não é um servidor de produção.
 
+## Critério editorial e associações
+
+Nos nomes das áreas apresentados em títulos, menus, filtros, perfis e opções do formulário, usar maiúsculas: "Direito Civil", "Direito da Família" e "Direito Público". No texto corrido e nas descrições SEO, usar minúsculas: "direito civil", "direito da família" e "direito público", salvo no início de frase. O uso genérico de "direito" e o plural "direitos" seguem as regras normais da frase.
+
+Cada área deve apresentar pelo menos dois advogados, com associações correspondentes nos perfis. As páginas específicas de residência e vistos usam `parentPractice: 'immigration'` e a mesma equipa de Direito dos Estrangeiros; o perfil lista a área principal para não repetir cada tipo de pedido.
+
 ## Publicação
 
 Publicar as páginas HTML, `en/`, `css/site.css`, `js/site.js`, `js/search-pt.json`, `js/search-en.json`, `img/`, `assets/`, `favicon.ico`, `robots.txt` e `sitemap.xml` num alojamento estático com HTTPS. Não é necessário publicar `src/`, `scripts/`, `tests/` ou os documentos internos de auditoria.

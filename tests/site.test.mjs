@@ -28,6 +28,75 @@ test('the six featured practices follow the meeting brief', () => {
   assert.ok(people.find(person => person.id === 'cfs').practices.includes('criminal'));
 });
 
+test('all practice pages have at least two lawyers and match their team profiles', async () => {
+  const expected = {
+    public: ['jsm', 'mjg'], administrative: ['jsm', 'mjg'], procurement: ['jsm', 'mcp'],
+    corporate: ['mcp', 'cfs'], employment: ['mcp', 'sca'], criminal: ['cfs', 'jvq'],
+    credit: ['mm', 'nsc', 'sca'], property: ['mjg', 'mcp', 'jvq', 'sca'],
+    civil: ['cfs', 'mcp', 'jvq'], family: ['cfs', 'sca'], succession: ['sca', 'mcp'],
+    litigation: ['mcp', 'cfs', 'mm', 'nsc', 'sca'], notarial: ['jvq', 'sca'],
+    immigration: ['jvq', 'mcp'], residence: ['jvq', 'mcp'], d2: ['jvq', 'mcp'],
+    d7: ['jvq', 'mcp'], ari: ['jvq', 'mcp'], reunification: ['jvq', 'mcp'],
+  };
+  for (const practice of practices) {
+    assert.deepEqual(practice.people, expected[practice.id], practice.id);
+    assert.ok(new Set(practice.people).size >= 2, practice.id);
+    const profilePractice = practice.parentPractice ?? practice.id;
+    if (practice.parentPractice) {
+      assert.deepEqual(practice.people, practices.find(item => item.id === profilePractice).people);
+    }
+    for (const id of practice.people) {
+      const person = people.find(item => item.id === id);
+      assert.equal(person.type, 'legal');
+      assert.ok(!person.trainee);
+      assert.ok(person.practices.includes(profilePractice), `${id}: ${practice.id}`);
+    }
+    for (const lang of ['pt', 'en']) {
+      const prefix = lang === 'en' ? 'en/' : '';
+      const teamFile = lang === 'pt' ? 'equipa.html' : 'team.html';
+      const html = await readFile(new URL(`../${prefix}${practice.files[lang]}`, import.meta.url), 'utf8');
+      const section = html.match(/<section class="article-section associated-people"[\s\S]*?<\/section>/)?.[0];
+      assert.ok(section, `${lang}: ${practice.id}`);
+      assert.equal((section.match(/<li>/g) || []).length, practice.people.length);
+      for (const id of practice.people) assert.ok(section.includes(`href="${teamFile}#${id}"`));
+    }
+  }
+  for (const person of people) {
+    for (const id of person.practices) {
+      assert.ok(practices.find(item => item.id === id).people.includes(person.id), `${person.id}: ${id}`);
+    }
+    for (const lang of ['pt', 'en']) {
+      const teamPath = lang === 'pt' ? 'equipa.html' : 'en/team.html';
+      const html = await readFile(new URL(`../${teamPath}`, import.meta.url), 'utf8');
+      const card = html.match(new RegExp(`<article[^>]*id="${person.id}"[\\s\\S]*?<\\/article>`))?.[0];
+      for (const id of person.practices) {
+        assert.ok(card.includes(`href="${practices.find(item => item.id === id).files[lang]}"`));
+      }
+      const graph = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
+      assert.deepEqual(graph.find(item => item['@type'] === 'Person' && item.name === person.name).knowsAbout,
+        person.practices.map(id => practices.find(item => item.id === id)[lang].title));
+    }
+  }
+});
+
+test('Portuguese uses capitalised practice labels and lower-case branches in prose and SEO', async () => {
+  const capitalisedBranch = /[Dd]ireito (?:Público|Privado|Administrativo|Civil|Penal|Comercial|do Trabalho|da Família|dos Estrangeiros)/u;
+  for (const practice of practices) {
+    if (practice.pt.title.startsWith('Direito ')) assert.match(practice.pt.title, capitalisedBranch);
+    for (const text of [practice.pt.summary, practice.pt.intro, ...practice.pt.services, ...practice.pt.sections.flatMap(([, ...paragraphs]) => paragraphs)]) {
+      assert.doesNotMatch(text, capitalisedBranch);
+    }
+  }
+  for (const page of institutional) assert.doesNotMatch(page.pt.description, capitalisedBranch);
+  const about = await readFile(new URL('../sobre.html', import.meta.url), 'utf8');
+  assert.ok(about.includes('O direito público e a recuperação de crédito'));
+  assert.ok(about.includes('As restantes áreas de direito privado'));
+  const home = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  assert.ok(home.includes('Direito público e privado.'));
+  assert.ok(home.includes('Experiência no direito.'));
+  assert.ok(home.includes('O direito, na sua realidade.'));
+});
+
 test('both published team pages contain the current team and no sample portrait', async () => {
   const [pt, en] = await Promise.all(['equipa.html','en/team.html'].map(file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')));
   for (const person of people) {
