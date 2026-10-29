@@ -212,6 +212,14 @@ section[id], article[id] { scroll-margin-top: calc(var(--header-height) + 24px);
 .practice-intro { font-size: 19px; padding-bottom: 10px; }
 .article-section { border-top: 1px solid var(--line); padding-top: 31px; margin-top: 38px; }
 .article-section h2 { font-size: 31px; margin-bottom: 23px; }
+.practice-topic-list { list-style: none; }
+.practice-topic-list li + li { border-top: 1px solid var(--line); }
+.practice-topic-list a { display: grid; grid-template-columns: minmax(0, 1fr) 20px; gap: 24px; align-items: center; padding: 22px 12px; text-decoration: none; }
+.practice-topic-list a:hover, .practice-topic-list a:focus-visible { background: var(--surface); }
+.practice-topic-list h3 { font-size: 23px; }
+.practice-topic-list p { margin-top: 8px; font-size: 15px; color: var(--body); }
+.practice-topic-list .fa-solid { color: var(--red); font-size: 15px; }
+.practice-topic-list a:hover h3 { color: var(--red); }
 .service-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px 30px; font-size: 16px; }
 .service-list li { display: flex; align-items: flex-start; gap: 12px; }
 .service-list .fa-check { color: var(--red); font-size: 11px; margin-top: 8px; }

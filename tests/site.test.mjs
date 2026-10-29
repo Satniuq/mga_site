@@ -110,6 +110,30 @@ test('both published team pages contain the current team and no sample portrait'
   assert.ok(!pt.includes('jsmiguel.jpg') && !en.includes('jsmiguel.jpg'));
 });
 
+test('immigration clearly links all five subpages before services without adding them to the topbar', async () => {
+  const immigration = practices.find(practice => practice.id === 'immigration');
+  const topics = practices.filter(practice => practice.parentPractice === immigration.id);
+  assert.equal(topics.length, 5);
+  for (const lang of ['pt', 'en']) {
+    const prefix = lang === 'en' ? 'en/' : '';
+    const html = await readFile(new URL(`../${prefix}${immigration.files[lang]}`, import.meta.url), 'utf8');
+    const section = html.match(/<section class="article-section practice-topics"[\s\S]*?<\/section>/)?.[0];
+    assert.ok(section);
+    assert.equal((section.match(/<li>/g) || []).length, topics.length);
+    assert.ok(html.indexOf('id="topics"') < html.indexOf('id="services"'));
+    assert.ok(html.includes('href="#topics" data-section-link'));
+    const header = html.match(/<header[\s\S]*?<\/header>/)[0];
+    for (const topic of topics) {
+      assert.ok(section.includes(`href="${topic.files[lang]}"`));
+      assert.ok(section.includes(topic[lang].title));
+      assert.ok(section.includes(topic[lang].summary));
+      assert.ok(!header.includes(`href="${topic.files[lang]}"`));
+    }
+  }
+  const civil = await readFile(new URL('../direito-civil.html', import.meta.url), 'utf8');
+  assert.ok(!civil.includes('id="topics"'));
+});
+
 test('Carla has commercial, civil and family practice without a focus qualifier in both languages', async () => {
   const carla = people.find(person => person.id === 'cfs');
   for (const id of ['criminal', 'corporate', 'civil', 'family', 'litigation']) {
