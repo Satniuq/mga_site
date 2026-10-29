@@ -134,6 +134,31 @@ test('immigration clearly links all five subpages before services without adding
   assert.ok(!civil.includes('id="topics"'));
 });
 
+test('all immigration subpages have a visible return link and parent breadcrumb in PT and EN', async () => {
+  const parent = practices.find(practice => practice.id === 'immigration');
+  for (const topic of practices.filter(practice => practice.parentPractice === parent.id)) {
+    for (const lang of ['pt', 'en']) {
+      const prefix = lang === 'en' ? 'en/' : '';
+      const html = await readFile(new URL(`../${prefix}${topic.files[lang]}`, import.meta.url), 'utf8');
+      const backLink = html.match(/<a class="text-link parent-practice-link"[\s\S]*?<\/a>/)?.[0];
+      assert.ok(backLink?.includes(`href="${parent.files[lang]}#topics"`));
+      assert.ok(backLink.includes(`${lang === 'pt' ? 'Voltar a' : 'Back to'} ${parent[lang].title}`));
+      assert.ok(html.indexOf(backLink) < html.indexOf('class="container practice-layout"'));
+      const breadcrumbs = html.match(/<nav class="breadcrumbs"[\s\S]*?<\/nav>/)[0];
+      assert.ok(breadcrumbs.includes(`href="${parent.files[lang]}"`));
+      const graph = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
+      const items = graph.find(item => item['@type'] === 'BreadcrumbList').itemListElement;
+      assert.equal(items.length, 4);
+      assert.deepEqual(items.map(item => item.position), [1, 2, 3, 4]);
+      assert.equal(items[2].name, parent[lang].title);
+      assert.equal(items[2].item, `${firm.url}/${prefix}${parent.files[lang]}`);
+      assert.equal(items[3].name, topic[lang].title);
+    }
+  }
+  const civil = await readFile(new URL('../direito-civil.html', import.meta.url), 'utf8');
+  assert.ok(!civil.includes('class="text-link parent-practice-link"'));
+});
+
 test('Carla has commercial, civil and family practice without a focus qualifier in both languages', async () => {
   const carla = people.find(person => person.id === 'cfs');
   for (const id of ['criminal', 'corporate', 'civil', 'family', 'litigation']) {

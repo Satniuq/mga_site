@@ -154,6 +154,9 @@ section[id], article[id] { scroll-margin-top: calc(var(--header-height) + 24px);
 .breadcrumbs a { text-decoration: none; }
 .page-heading h1 { max-width: 1120px; }
 .page-heading .eyebrow { margin-bottom: 14px; }
+.parent-practice-link { margin-top: 22px; justify-content: flex-start; gap: 12px; max-width: 100%; }
+.parent-practice-link .fa-solid { flex-shrink: 0; }
+.parent-practice-link:hover .fa-arrow-left { transform: translateX(-4px); }
 .page-lead { margin-top: 23px; max-width: 880px; font-size: 20px; line-height: 1.6; }
 .directory { padding-bottom: 80px; }
 .filter-bar { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding-block: 20px; margin-bottom: 38px; }

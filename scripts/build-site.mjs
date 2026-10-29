@@ -98,11 +98,13 @@ function picture(lang, className = '', priority = false) {
 
 function breadcrumb(page, lang) {
   if (page.id === 'home') return '';
-  return `<nav class="breadcrumbs" aria-label="${lang === 'pt' ? 'Percurso de navegação' : 'Breadcrumb'}"><ol><li>${link('home', lang, copy[lang].home)}</li>${practices.includes(page) ? `<li>${link('areas', lang)}</li>` : ''}<li aria-current="page">${escape(page[lang].title)}</li></ol></nav>`;
+  return `<nav class="breadcrumbs" aria-label="${lang === 'pt' ? 'Percurso de navegação' : 'Breadcrumb'}"><ol><li>${link('home', lang, copy[lang].home)}</li>${practices.includes(page) ? `<li>${link('areas', lang)}</li>` : ''}${page.parentPractice ? `<li>${link(page.parentPractice, lang)}</li>` : ''}<li aria-current="page">${escape(page[lang].title)}</li></ol></nav>`;
 }
 
 function pageHeading(page, lang, description, eyebrow = '') {
-  return `<div class="container page-heading">${breadcrumb(page, lang)}${eyebrow ? `<p class="eyebrow">${escape(eyebrow)}</p>` : ''}<h1>${escape(page[lang].title)}</h1>${description ? `<p class="page-lead">${escape(description)}</p>` : ''}</div>`;
+  const parent = page.parentPractice ? byId.get(page.parentPractice) : null;
+  const parentLink = parent ? `<a class="text-link parent-practice-link" href="${href(parent.id, lang)}#topics">${icon('arrow-left')}<span>${lang === 'pt' ? 'Voltar a' : 'Back to'} ${escape(parent[lang].title)}</span></a>` : '';
+  return `<div class="container page-heading">${breadcrumb(page, lang)}${eyebrow ? `<p class="eyebrow">${escape(eyebrow)}</p>` : ''}<h1>${escape(page[lang].title)}</h1>${description ? `<p class="page-lead">${escape(description)}</p>` : ''}${parentLink}</div>`;
 }
 
 function practiceCard(practice, lang, index, filter = false) {
@@ -223,7 +225,7 @@ function schema(page, lang) {
   const base = { '@type': 'LegalService', '@id': `${firm.url}/#firm`, name: firm.name, legalName: firm.legalName, url: `${firm.url}/`, foundingDate: firm.founded, image: `${firm.url}/img/office-1280.webp`, logo: `${firm.url}/img/logo.webp`, telephone: firm.phoneHref, email: firm.email, address: { '@type': 'PostalAddress', streetAddress: firm.street, postalCode: firm.postcode, addressLocality: 'Lisboa', addressCountry: 'PT' }, areaServed: { '@type': 'Country', name: 'Portugal' } };
   const graph = [base, { '@type': 'WebPage', '@id': `${absolute(page, lang)}#page`, url: absolute(page, lang), name: page[lang].title, inLanguage: lang === 'pt' ? 'pt-PT' : 'en', about: { '@id': base['@id'] } }];
   if (page.id !== 'home') {
-    const crumbs = [{id: 'home', name: copy[lang].home}, ...(practices.includes(page) ? [{id: 'areas', name: copy[lang].areas}] : []), {id: page.id, name: page[lang].title}];
+    const crumbs = [{id: 'home', name: copy[lang].home}, ...(practices.includes(page) ? [{id: 'areas', name: copy[lang].areas}] : []), ...(page.parentPractice ? [{id: page.parentPractice, name: byId.get(page.parentPractice)[lang].title}] : []), {id: page.id, name: page[lang].title}];
     graph.push({ '@type': 'BreadcrumbList', itemListElement: crumbs.map((crumb, i) => ({ '@type': 'ListItem', position: i + 1, name: crumb.name, item: absolute(byId.get(crumb.id), lang) })) });
   }
   if (page.id === 'team') graph.push(...people.map(person => ({ '@type': 'Person', '@id': `${absolute(page, lang)}#${person.id}`, name: person.name, jobTitle: role(person, lang), worksFor: { '@id': base['@id'] }, ...(person.email ? {email: person.email} : {}), knowsAbout: person.practices.map(id => byId.get(id)[lang].title) })));
