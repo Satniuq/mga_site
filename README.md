@@ -5,7 +5,7 @@ Site institucional bilingue, com páginas HTML estáticas e JavaScript progressi
 ## Edição
 
 - `src/site-data.mjs`: conteúdos PT/EN, profissionais, áreas, contactos e correspondência de URLs.
-- `src/practice-topics.mjs`: dez subpáginas temáticas PT/EN, respetivas áreas principais e fontes oficiais.
+- `src/practice-topics.mjs`: vinte subpáginas temáticas PT/EN, respetivas áreas principais e fontes oficiais.
 - `scripts/build-site.mjs`: estrutura comum, páginas institucionais, SEO, sitemap e índices de pesquisa.
 - `css/site.css`: sistema visual e responsive.
 - `js/site.js`: navegação, pesquisa, filtros, formulário e mapa a pedido.
@@ -27,7 +27,9 @@ Nos nomes das áreas apresentados em títulos, menus, filtros, perfis e opções
 
 Cada área deve apresentar pelo menos dois advogados, com associações correspondentes nos perfis. As subpáginas usam `parentPractice` e a mesma equipa da área principal; o perfil lista a área principal para não repetir cada tema. As cinco páginas de residência e vistos mantêm a associação a Direito dos Estrangeiros.
 
-As dez subpáginas acrescentadas em 30 de outubro de 2026 cobrem impugnação administrativa, preparação de propostas, exclusão e adjudicação, cobrança e injunção, gestão de carteiras, constituição de sociedades, compra e venda de imóveis, divórcio, partilhas hereditárias e autenticação documental. São acessíveis em "Temas nesta área", com regresso e breadcrumbs, sem entradas próprias na topbar ou na grelha de áreas. O site passa a ter 72 páginas, com pesquisa, contactos por assunto e sitemap atualizados.
+As primeiras dez subpáginas acrescentadas em 30 de outubro de 2026 cobrem impugnação administrativa, preparação de propostas, exclusão e adjudicação, cobrança e injunção, gestão de carteiras, constituição de sociedades, compra e venda de imóveis, divórcio, partilhas hereditárias e autenticação documental.
+
+A segunda série acrescenta responsabilidades parentais e alimentos, contratos de trabalho, despedimento e cessação, defesa do arguido e interrogatório, responsabilidade civil e indemnizações, execuções e penhoras, entrada e saída de sócios e cessão de quotas, arrendamento, procurações e execução de sentenças administrativas. Todos os vinte temas estão disponíveis em PT e EN, em "Temas nesta área", com regresso e breadcrumbs, sem entradas próprias na topbar ou na grelha de áreas. O site passa a ter 92 páginas, com pesquisa, contactos por assunto e sitemap atualizados.
 
 Os textos novos usam linguagem informativa, não prometem resultados e não fixam prazos ou custos universais. Foram consultadas fontes oficiais do Diário da República, Portal BASE, Portal dos Tribunais, Justiça.gov.pt e IRN, ligadas nas páginas quando aplicável. A página de gestão de carteiras descreve a organização do serviço a partir das notas da sociedade. A conferência editorial e das fontes não substitui a aprovação final dos advogados responsáveis.
 

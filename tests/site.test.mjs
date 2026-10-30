@@ -98,7 +98,7 @@ test('Portuguese uses capitalised practice labels and lower-case branches in pro
   assert.ok(home.includes('O direito, na sua realidade.'));
 });
 
-test('the ten approved topics are published in both languages and linked only inside their areas', async () => {
+test('the twenty approved topics are published in both languages and linked only inside their areas', async () => {
   const expectedParents = {
     'administrative-challenges': 'administrative',
     'public-tender-bids': 'procurement',
@@ -110,8 +110,18 @@ test('the ten approved topics are published in both languages and linked only in
     'divorce-separation': 'family',
     'inheritance-division': 'succession',
     'document-authentication': 'notarial',
+    'parental-responsibility-maintenance': 'family',
+    'employment-contracts': 'employment',
+    'dismissal-termination': 'employment',
+    'criminal-defence-interviews': 'criminal',
+    'civil-liability-compensation': 'civil',
+    'enforcement-attachments': 'credit',
+    'share-transfers': 'corporate',
+    'leases-default': 'property',
+    'powers-of-attorney': 'notarial',
+    'administrative-judgment-enforcement': 'administrative',
   };
-  assert.equal(practiceTopics.length, 10);
+  assert.equal(practiceTopics.length, 20);
   assert.deepEqual(Object.fromEntries(practiceTopics.map(topic => [topic.id, topic.parentPractice])), expectedParents);
   const sitemap = await readFile(new URL('../sitemap.xml', import.meta.url), 'utf8');
   for (const lang of ['pt', 'en']) {
@@ -178,7 +188,8 @@ test('immigration clearly links all five subpages before services without adding
     }
   }
   const civil = await readFile(new URL('../direito-civil.html', import.meta.url), 'utf8');
-  assert.ok(!civil.includes('id="topics"'));
+  assert.ok(civil.includes('id="topics"'));
+  assert.ok(civil.includes('href="responsabilidade-civil-indemnizacoes.html"'));
 });
 
 test('all topic pages have a visible return link and parent breadcrumb in PT and EN', async () => {
@@ -292,7 +303,7 @@ test('Vania has the requested role in the team, structured data and search in ea
 });
 
 test('existing public URLs are preserved and every page has its own language pair', () => {
-  assert.equal(pages.length, 36);
+  assert.equal(pages.length, 46);
   for (const lang of ['pt', 'en']) {
     const files = pages.map(page => page.files[lang]);
     assert.equal(new Set(files).size, files.length);
