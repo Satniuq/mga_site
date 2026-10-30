@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { firm, practices, featured, people, institutional } from '../src/site-data.mjs';
+import { practiceTopics } from '../src/practice-topics.mjs';
 
 const pages = [...institutional, ...practices];
 
@@ -39,7 +40,7 @@ test('all practice pages have at least two lawyers and match their team profiles
     d7: ['jvq', 'mcp'], ari: ['jvq', 'mcp'], reunification: ['jvq', 'mcp'],
   };
   for (const practice of practices) {
-    assert.deepEqual(practice.people, expected[practice.id], practice.id);
+    assert.deepEqual(practice.people, expected[practice.id] ?? expected[practice.parentPractice], practice.id);
     assert.ok(new Set(practice.people).size >= 2, practice.id);
     const profilePractice = practice.parentPractice ?? practice.id;
     if (practice.parentPractice) {
@@ -97,6 +98,52 @@ test('Portuguese uses capitalised practice labels and lower-case branches in pro
   assert.ok(home.includes('O direito, na sua realidade.'));
 });
 
+test('the ten approved topics are published in both languages and linked only inside their areas', async () => {
+  const expectedParents = {
+    'administrative-challenges': 'administrative',
+    'public-tender-bids': 'procurement',
+    'tender-exclusion-award': 'procurement',
+    'debt-collection-payment-orders': 'credit',
+    'credit-portfolio-management': 'credit',
+    'company-formation': 'corporate',
+    'property-purchase-sale': 'property',
+    'divorce-separation': 'family',
+    'inheritance-division': 'succession',
+    'document-authentication': 'notarial',
+  };
+  assert.equal(practiceTopics.length, 10);
+  assert.deepEqual(Object.fromEntries(practiceTopics.map(topic => [topic.id, topic.parentPractice])), expectedParents);
+  const sitemap = await readFile(new URL('../sitemap.xml', import.meta.url), 'utf8');
+  for (const lang of ['pt', 'en']) {
+    const prefix = lang === 'en' ? 'en/' : '';
+    const areasFile = lang === 'pt' ? 'areas.html' : 'practice-areas.html';
+    const contactFile = lang === 'pt' ? 'contactos.html' : 'contacts.html';
+    const areas = await readFile(new URL(`../${prefix}${areasFile}`, import.meta.url), 'utf8');
+    assert.equal((areas.match(/class="practice-card"/g) || []).length, 14);
+    const contact = await readFile(new URL(`../${prefix}${contactFile}`, import.meta.url), 'utf8');
+    const index = JSON.parse(await readFile(new URL(`../js/search-${lang}.json`, import.meta.url), 'utf8'));
+    for (const topic of practiceTopics) {
+      const parent = practices.find(practice => practice.id === topic.parentPractice);
+      const html = await readFile(new URL(`../${prefix}${topic.files[lang]}`, import.meta.url), 'utf8');
+      const parentHtml = await readFile(new URL(`../${prefix}${parent.files[lang]}`, import.meta.url), 'utf8');
+      const topicsSection = parentHtml.match(/<section class="article-section practice-topics"[\s\S]*?<\/section>/)?.[0];
+      assert.ok(topicsSection?.includes(`href="${topic.files[lang]}"`));
+      assert.ok(html.includes(`href="${parent.files[lang]}#topics"`));
+      assert.ok(parentHtml.includes('href="#topics" data-section-link'));
+      assert.ok(parentHtml.includes(lang === 'pt' ? 'Temas nesta área' : 'Topics in this practice'));
+      const header = html.match(/<header[\s\S]*?<\/header>/)[0];
+      assert.ok(!header.includes(`href="${topic.files[lang]}"`));
+      assert.ok(!areas.includes(`href="${topic.files[lang]}"`));
+      assert.equal(index.filter(entry => entry.path === `${prefix}${topic.files[lang]}`).length, 1);
+      assert.ok(contact.includes(`data-area-id="${topic.id}"`));
+      assert.ok(sitemap.includes(`<loc>${firm.url}/${prefix}${topic.files[lang]}</loc><lastmod>2026-10-30</lastmod>`));
+      assert.ok(html.includes(`?area=${topic.id}`));
+      assert.equal(topic[lang].sections.length, 3);
+      assert.equal(topic[lang].services.length, 6);
+    }
+  }
+});
+
 test('both published team pages contain the current team and no sample portrait', async () => {
   const [pt, en] = await Promise.all(['equipa.html','en/team.html'].map(file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')));
   for (const person of people) {
@@ -134,9 +181,9 @@ test('immigration clearly links all five subpages before services without adding
   assert.ok(!civil.includes('id="topics"'));
 });
 
-test('all immigration subpages have a visible return link and parent breadcrumb in PT and EN', async () => {
-  const parent = practices.find(practice => practice.id === 'immigration');
-  for (const topic of practices.filter(practice => practice.parentPractice === parent.id)) {
+test('all topic pages have a visible return link and parent breadcrumb in PT and EN', async () => {
+  for (const topic of practices.filter(practice => practice.parentPractice)) {
+    const parent = practices.find(practice => practice.id === topic.parentPractice);
     for (const lang of ['pt', 'en']) {
       const prefix = lang === 'en' ? 'en/' : '';
       const html = await readFile(new URL(`../${prefix}${topic.files[lang]}`, import.meta.url), 'utf8');
@@ -245,7 +292,7 @@ test('Vania has the requested role in the team, structured data and search in ea
 });
 
 test('existing public URLs are preserved and every page has its own language pair', () => {
-  assert.equal(pages.length, 26);
+  assert.equal(pages.length, 36);
   for (const lang of ['pt', 'en']) {
     const files = pages.map(page => page.files[lang]);
     assert.equal(new Set(files).size, files.length);

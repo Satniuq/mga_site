@@ -47,7 +47,7 @@ function header(page, lang) {
         <button class="icon-button areas-toggle" type="button" aria-label="${t.submenu}" aria-expanded="false" aria-controls="practice-menu" data-areas-toggle title="${t.submenu}" hidden>${icon('chevron-down')}</button>
         <div class="mega-panel" id="practice-menu" hidden>
           <div class="container mega-inner">
-            ${Object.entries(groups).map(([key, label]) => `<section><h2>${label[lang]}</h2><ul>${practices.filter(p => p.group === key && !['residence','d2','d7','ari','reunification'].includes(p.id)).map(p => `<li>${link(p.id, lang)}</li>`).join('')}</ul></section>`).join('')}
+            ${Object.entries(groups).map(([key, label]) => `<section><h2>${label[lang]}</h2><ul>${practices.filter(p => p.group === key && !p.parentPractice).map(p => `<li>${link(p.id, lang)}</li>`).join('')}</ul></section>`).join('')}
             <a class="mega-all text-link" href="${href('areas', lang)}">${t.allAreas}${icon('arrow-right')}</a>
           </div>
         </div>
@@ -139,7 +139,7 @@ function filters(kind, lang) {
 
 function areasPage(page, lang) {
   const t = copy[lang];
-  return `<main id="main">${pageHeading(page, lang, lang === 'pt' ? 'Direito público e privado. Uma prática organizada em torno dos assuntos e das pessoas que os acompanham.' : 'Public and private law. A practice built around the matters we handle and the people who handle them.')}<div class="container directory" data-filter-directory>${filters('areas', lang)}${Object.entries(groups).map(([key, group]) => `<section class="directory-group" data-filter-group><div class="directory-group-heading"><span class="eyebrow">${group[lang]}</span><h2>${lang === 'pt' ? ({public: 'Estado, Administração e território', business: 'Empresas, trabalho e recuperação de crédito', people: 'Vida pessoal, património e litígios'})[key] : ({public: 'Public authorities and planning', business: 'Business, employment and debt recovery', people: 'Personal matters, property and disputes'})[key]}</h2></div><div class="practice-grid">${practices.filter(p => p.group === key && !['residence','d2','d7','ari','reunification'].includes(p.id)).map((p, i) => practiceCard(p, lang, i, true)).join('')}</div></section>`).join('')}<p class="empty-state" data-filter-empty hidden>${t.noAreas}</p></div>${contactBand(lang)}</main>`;
+  return `<main id="main">${pageHeading(page, lang, lang === 'pt' ? 'Direito público e privado. Uma prática organizada em torno dos assuntos e das pessoas que os acompanham.' : 'Public and private law. A practice built around the matters we handle and the people who handle them.')}<div class="container directory" data-filter-directory>${filters('areas', lang)}${Object.entries(groups).map(([key, group]) => `<section class="directory-group" data-filter-group><div class="directory-group-heading"><span class="eyebrow">${group[lang]}</span><h2>${lang === 'pt' ? ({public: 'Estado, Administração e território', business: 'Empresas, trabalho e recuperação de crédito', people: 'Vida pessoal, património e litígios'})[key] : ({public: 'Public authorities and planning', business: 'Business, employment and debt recovery', people: 'Personal matters, property and disputes'})[key]}</h2></div><div class="practice-grid">${practices.filter(p => p.group === key && !p.parentPractice).map((p, i) => practiceCard(p, lang, i, true)).join('')}</div></section>`).join('')}<p class="empty-state" data-filter-empty hidden>${t.noAreas}</p></div>${contactBand(lang)}</main>`;
 }
 
 function teamPage(page, lang) {
@@ -167,7 +167,9 @@ function practicePage(page, lang) {
   const sectionIds = ['services', ...data.sections.map((_, i) => `section-${i + 1}`)];
   const headings = [t.services, ...data.sections.map(s => s[0])];
   const topics = practices.filter(practice => practice.parentPractice === page.id);
-  const topicsTitle = lang === 'pt' ? 'Vistos e residência em Portugal' : 'Visas and residence in Portugal';
+  const topicsTitle = page.id === 'immigration'
+    ? (lang === 'pt' ? 'Vistos e residência em Portugal' : 'Visas and residence in Portugal')
+    : (lang === 'pt' ? 'Temas nesta área' : 'Topics in this practice');
   if (topics.length) { sectionIds.unshift('topics'); headings.unshift(topicsTitle); }
   const topicsSection = topics.length ? `<section class="article-section practice-topics" id="topics" aria-labelledby="topics-title"><h2 id="topics-title">${topicsTitle}</h2><ul class="practice-topic-list">${topics.map(topic => `<li><a href="${href(topic.id, lang)}"><div><h3>${escape(topic[lang].title)}</h3><p>${escape(topic[lang].summary)}</p></div>${icon('arrow-right')}</a></li>`).join('')}</ul></section>` : '';
   if (page.people.length) { sectionIds.push('people'); headings.push(t.associatedTeam); }
@@ -286,7 +288,7 @@ for (const lang of ['pt', 'en']) {
   await writeFile(path.join(root, `js/search-${lang}.json`), `${JSON.stringify(index)}\n`, 'utf8');
 }
 
-const urls = allPages.flatMap(page => ['pt','en'].map(lang => `  <url><loc>${absolute(page, lang)}</loc><lastmod>${firm.updated}</lastmod>${['pt','en'].map(other => `<xhtml:link rel="alternate" hreflang="${other === 'pt' ? 'pt-PT' : 'en'}" href="${absolute(page, other)}"/>`).join('')}</url>`));
+const urls = allPages.flatMap(page => ['pt','en'].map(lang => `  <url><loc>${absolute(page, lang)}</loc><lastmod>${page.updated ?? firm.updated}</lastmod>${['pt','en'].map(other => `<xhtml:link rel="alternate" hreflang="${other === 'pt' ? 'pt-PT' : 'en'}" href="${absolute(page, other)}"/>`).join('')}</url>`));
 await writeFile(path.join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`, 'utf8');
 await writeFile(path.join(root, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /src/\nDisallow: /scripts/\nDisallow: /tests/\nSitemap: ${firm.url}/sitemap.xml\n`, 'utf8');
 console.log(`Built ${allPages.length * 2} pages; asset version ${version}.`);

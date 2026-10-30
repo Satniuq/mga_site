@@ -1,3 +1,5 @@
+import { practiceTopics } from './practice-topics.mjs';
+
 export const firm = {
   name: 'Miguel, Goes & Associados',
   legalName: 'Miguel, Goes & Associados - Sociedade de Advogados, SP, RL',
@@ -507,6 +509,12 @@ export const practices = [
     },
   },
 ];
+
+for (const topic of practiceTopics) {
+  const parent = practices.find(practice => practice.id === topic.parentPractice);
+  parent.updated = '2026-10-30';
+  practices.push({ ...topic, group: parent.group, icon: parent.icon, people: [...parent.people], updated: '2026-10-30' });
+}
 
 export const featured = ['public', 'corporate', 'employment', 'criminal', 'credit', 'property'];
 

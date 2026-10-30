@@ -144,8 +144,8 @@ if set(locations) != set(canonical_pages):
     errors.append("Sitemap does not match generated canonical pages")
 if len(locations) != len(set(locations)):
     errors.append("Duplicate sitemap URLs")
-if len(pages) != 52 or len(canonical_pages) != 52:
-    errors.append("Expected 52 distinct bilingual pages")
+if len(pages) != 72 or len(canonical_pages) != 72:
+    errors.append("Expected 72 distinct bilingual pages")
 
 for stylesheet in [ROOT / "css" / "site.css", ROOT / "assets" / "fontawesome" / "css" / "all.min.css"]:
     for reference in re.findall(r"url\(\s*['\"]?([^)'\"\s]+)", stylesheet.read_text(encoding="utf-8")):
